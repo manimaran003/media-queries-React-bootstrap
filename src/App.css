@@ -1,0 +1,90 @@
+.main-app{
+  height:880px;
+  background-color:#fff;
+}
+.sideBar-logo{
+  height:880px;
+  background-color:#fff;
+  display: none;
+}
+.sideBar-login{
+  height:880px;
+  background-color:#07127b;
+  display: block;
+}
+.logoText{
+  color:#807070;
+  font-size: 30px;
+}
+.textColor{
+  margin-top: 4rem;
+  color:#fff;
+}
+.loginText2{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 100;
+    letter-spacing: 0;
+    color: #e6e6e6;
+    width: 100%;
+
+}
+#exampleFormControlInput1,#basic-addon1{
+  border-right-width: 1px!important;
+    background: #242e8f!important;
+    border: none;
+}
+.form-label{
+  color:#cecece;
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) { 
+  .sideBar-logo{
+    height:880px;
+    background-color:#fff;
+    display: none;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+  .sideBar-logo{
+    height:880px;
+    background-color:#fff;
+    display: none;
+  }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+  .sideBar-logo{
+    height:880px;
+    background-color:#fff;
+    display: flex;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+  .sideBar-logo{
+    height:880px;
+    background-color:#fff;
+    display: block;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) { 
+
+ }
+
+ .login-btn{
+  width: 80%;
+  background-color: #f77!important;
+  color: #fff!important;
+  height: 50px!important;
+  border-width: 0!important;
+  font-size: 22px!important;
+  border-radius: 32px;
+ }
