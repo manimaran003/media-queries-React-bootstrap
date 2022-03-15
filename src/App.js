@@ -5,16 +5,14 @@ import './App.css'
 const App = () => {
   return (
     <div className='container-fluid main-app'>
-      <div className='containr-fluid'>
         <div className='row'>
-          <div className='col-sm-7  sideBar-logo'>
+          <div className='col-sm-7 col-md-12 col-lg-7 sideBar-logo'>
             <LogoComponent/>
           </div>
-          <div className='col-sm-5  sideBar-login'>
+          <div className='col-sm-12 col-md-12 col-lg-5 col-lg-5 sideBar-login'>
             <LoginComponent/>
           </div>
         </div>
-      </div>
     </div>
   )
 }
