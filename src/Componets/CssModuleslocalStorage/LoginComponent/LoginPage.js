@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 const initialValues={
     username:""  ,
     password:"" 
@@ -69,6 +70,9 @@ const LoginPage = () => {
                             <button type="button" onClick={handleSubmit} className="btn btn-lg btn-primary login-btn">Login</button>
                         </div>
                     </form>
+                </div>
+                <div className="d-flex justify-content-center mt-3">
+                <p>Dont have an account? <Link to="/Signup">Signup</Link></p>
                 </div>
             </div>
         </>
