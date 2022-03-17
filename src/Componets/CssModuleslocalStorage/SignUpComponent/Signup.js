@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, TextField, Grid, InputLabel, Button, InputBase, InputAdornment } from '@mui/material'
 import { makeStyles, styled } from '@mui/styles';
 import { Typography } from "antd";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import ErrorComponent from "./ErrorComponent";
 const DesignTextField = styled(InputBase)({
     '& .MuiInputBase-input': {
         borderRadius: 4,
@@ -41,8 +42,59 @@ const useStyles = makeStyles({
         marginTop: "20px",
     }
 })
+
+const initialState = {
+    fname: "",
+    lname: '',
+    email: "",
+    password: ""
+
+}
 const Signup = () => {
     const classes = useStyles()
+    const [state, setState] = useState(initialState)
+    const [errors, setErrors] = useState({})
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setState({
+            ...state,
+            [name]: value
+        })
+    }
+    const handleValidation = () => {
+        let error = {}
+        const { fname, lname, email, password } = state
+        if (fname === "") {
+            error.name = "please input your first name"
+        }
+        if (lname === "") {
+            error.lname = "please input your last name"
+        }
+        if (email === "") {
+            error.email = "please input your email"
+        }
+        if (password === "") {
+            error.password= "please input your password"
+        }
+        return error
+    }
+    const setLocalStorage=()=>{
+        localStorage.setItem("NEWDATA",JSON.stringify(state))
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const errors = handleValidation()
+        console.log(Object.keys(errors).length)
+        if (Object.keys(errors).length === 0) {
+            console.log("ok")
+            setLocalStorage()
+        }
+        else {
+            console.log(errors)
+            setErrors(errors)
+        }
+    }
+    const { fname, lname, password, email } = state
     return (
         <Box>
             <Grid container justifyContent={'center'}>
@@ -53,13 +105,16 @@ const Signup = () => {
                                 Firstname
                             </DesignInputLabel>
                             <DesignTextField
+                                name="fname" value={fname} onChange={handleChange}
                                 fullWidth />
+                                <ErrorComponent errorText={errors.name}/>
                         </Grid>
                         <Grid item xs={6}>
                             <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                                 lastname
                             </DesignInputLabel>
-                            <DesignTextField fullWidth />
+                            <DesignTextField name="lname" value={lname} onChange={handleChange} fullWidth />
+                            <ErrorComponent errorText={errors.lname}/>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -68,16 +123,18 @@ const Signup = () => {
                         <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                             Email
                         </DesignInputLabel>
-                        <DesignTextField fullWidth />
+                        <DesignTextField name="email" value={email} onChange={handleChange} fullWidth />
+                        <ErrorComponent errorText={errors.email}/>
                     </Grid>
                     <Grid item xs={6}>
                         <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                             Password
                         </DesignInputLabel>
-                        <DesignTextField fullWidth />
+                        <DesignTextField name="password" value={password} onChange={handleChange} fullWidth />
+                        <ErrorComponent errorText={errors.password}/>
                     </Grid>
                 </Grid>
-                <Button className={classes.btn}>Sign Up</Button>
+                <Button className={classes.btn} onClick={handleSubmit}>Sign Up</Button>
                 <Typography className={classes.text}>already have an account <Link to="/login">Login</Link></Typography>
             </Grid>
         </Box>

@@ -3,7 +3,8 @@ import React from "react";
 import LogoComponent from '../Componets/CssModuleslocalStorage/imageContainer/LogoComponent'
 import LoginComponent from '../Componets/CssModuleslocalStorage/LoginComponent/LoginComponent'
 import SignUpComponent from '../Componets/CssModuleslocalStorage/SignUpComponent/SignUpComponent'
-import NewLogout from "./NewLogout";
+import HomePage from "./HomePage";
+import ReducerComponet from "../Componets/useReducersampleApp/ReducerComponent";
 const SubRouter = () => {
     return (
         <div className='container-fluid main-app'>
@@ -26,11 +27,13 @@ const MainRouter = () => {
         <>
             <Routes>
                 <Route path="*" element={<SubRouter />} />
-                <Route path="/logout" element={<NewLogout/>}/>
+                <Route path="/homepage" element={<HomePage/>}/>
+                <Route path="/reducerapp" element={<ReducerComponet/>}/>
             </Routes>
         </>
     )
-}
-
-
+    }
 export default MainRouter
+
+
+
