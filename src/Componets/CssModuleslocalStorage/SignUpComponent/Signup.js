@@ -48,12 +48,14 @@ const initialState = {
     lname: '',
     email: "",
     password: ""
-
+    
 }
+let arr=[];
 const Signup = () => {
     const classes = useStyles()
     const [state, setState] = useState(initialState)
     const [errors, setErrors] = useState({})
+    const [newArray,setArray]=useState([])
     const handleChange = (e) => {
         const { name, value } = e.target
         setState({
@@ -79,7 +81,7 @@ const Signup = () => {
         return error
     }
     const setLocalStorage=()=>{
-        localStorage.setItem("NEWDATA",JSON.stringify(state))
+        localStorage.setItem("NEWDATA",JSON.stringify(arr))
     }
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -87,6 +89,7 @@ const Signup = () => {
         console.log(Object.keys(errors).length)
         if (Object.keys(errors).length === 0) {
             console.log("ok")
+            arr.push(state)
             setLocalStorage()
         }
         else {
@@ -98,9 +101,9 @@ const Signup = () => {
     return (
         <Box>
             <Grid container justifyContent={'center'}>
-                <Grid item xs={12} >
+                <Grid item xs={12}>
                     <Grid container spacing={2}>
-                        <Grid item xs={6}>
+                        <Grid item xs={6} sm={12} md={12} lg={6} xl={6}>
                             <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                                 Firstname
                             </DesignInputLabel>
@@ -109,7 +112,7 @@ const Signup = () => {
                                 fullWidth />
                                 <ErrorComponent errorText={errors.name}/>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid xs={6} sm={12} md={12} lg={6} xl={6}>
                             <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                                 lastname
                             </DesignInputLabel>

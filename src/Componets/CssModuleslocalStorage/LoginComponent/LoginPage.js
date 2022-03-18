@@ -44,9 +44,12 @@ const LoginPage = () => {
             if(!data){
                 setModal(true)
             }
-            const { email, password } = data?data:""
+            const saveData=data.find((val)=>val.email===state.username && val.password===state.password)
+            const { email, password } = saveData?saveData:""
+
             if (email === state.username && password===state.password) {
                 setModal(false)
+                localStorage.setItem("NEWFILTER",JSON.stringify(saveData))
                 navigate("/homepage")
             }
             else{
