@@ -81,16 +81,24 @@ const Signup = () => {
         return error
     }
     const setLocalStorage=()=>{
-        localStorage.setItem("NEWDATA",JSON.stringify(arr))
+        localStorage.setItem("NEWDATA",JSON.stringify([state]))
     }
     const handleSubmit = (e) => {
         e.preventDefault()
         const errors = handleValidation()
         console.log(Object.keys(errors).length)
         if (Object.keys(errors).length === 0) {
-            console.log("ok")
-            arr.push(state)
-            setLocalStorage()
+            let localData=localStorage.getItem("NEWDATA")
+            if(localData){
+                let local=JSON.parse(localData)
+                local.push(state)
+                localStorage.setItem("NEWDATA",JSON.stringify(local))
+            }
+            else{
+                setLocalStorage()
+            }
+            //arr.push(state)
+            /*setLocalStorage()*/
         }
         else {
             console.log(errors)
@@ -102,8 +110,8 @@ const Signup = () => {
         <Box>
             <Grid container justifyContent={'center'}>
                 <Grid item xs={12}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={6} sm={12} md={12} lg={6} xl={6}>
+                    <Grid container>
+                        <Grid  item xs={5} sm={12} md={12} lg={5} xl={5}>
                             <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                                 Firstname
                             </DesignInputLabel>
@@ -112,7 +120,9 @@ const Signup = () => {
                                 fullWidth />
                                 <ErrorComponent errorText={errors.name}/>
                         </Grid>
-                        <Grid xs={6} sm={12} md={12} lg={6} xl={6}>
+                        <Grid xs={2} lg={1}>
+                        </Grid>
+                        <Grid xs={5} sm={12} md={12} lg={5} xl={5}>
                             <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                                 lastname
                             </DesignInputLabel>

@@ -1,10 +1,13 @@
 import { Card,CardMedia } from "@mui/material";
 import React,{useState} from "react";
+import {data} from '../MainPage/data'
 const CardComponent=(props)=>{
-    const handleSubmit=(e,data)=>{
+    const handleSubmit=(e,id)=>{
         e.preventDefault()
-        console.log(data)
-        props.passData(data)
+        props.passData(id)
+        // let currentValue= data.find((val)=>val.id===id)
+        // console.log(currentValue)
+        // props.passData({type:"ADDCART",payload:currentValue})
     }
     return (
         <>

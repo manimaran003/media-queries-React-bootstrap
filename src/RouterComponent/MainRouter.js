@@ -4,7 +4,7 @@ import LogoComponent from '../Componets/CssModuleslocalStorage/imageContainer/Lo
 import LoginComponent from '../Componets/CssModuleslocalStorage/LoginComponent/LoginComponent'
 import SignUpComponent from '../Componets/CssModuleslocalStorage/SignUpComponent/SignUpComponent'
 import HomePage from "./HomePage";
-import ReducerComponet from "../Componets/useReducersampleApp/ReducerComponent";
+import ReducerComponet from '../Componets/useReducersampleApp/MainPage/ReducerComponent'
 const SubRouter = () => {
     return (
         <div className='container-fluid main-app'>
