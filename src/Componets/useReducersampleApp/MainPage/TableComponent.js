@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import ModalComponent from "../UI/ModalComponent";
 const HeadRow = [
     "id",
     "productname",
     "productprice"
 ]
 
-const TableComponent = (props) => {
 
-const handleDelete=(item)=>{
-    console.log("clicked")
-    props.DeleteData(item)
-}
+const TableComponent = (props) => {
+    const [open, setOpen] = useState(false)
+    const handleDelete = (item) => {
+        props.DeleteData(item)
+    }
+    const handleEdit = () => {
+        setOpen(true)
+    }
+    const SendToReducer = (data) => {
+        props.parent(data)
+    }
+    const handleClose = () => {
+        setOpen(false)
+    }
     return (
         <>
             <TableContainer component={Paper}>
@@ -47,7 +58,11 @@ const handleDelete=(item)=>{
                                             {item.ProductPrice}
                                         </TableCell>
                                         <TableCell>
-                                            <DeleteIcon onClick={()=>handleDelete(item)}/>
+                                            <EditIcon onClick={() => handleEdit()} />
+                                            <ModalComponent open={open} close={handleClose} pass={item} NewData={SendToReducer} />
+                                        </TableCell>
+                                        <TableCell>
+                                            <DeleteIcon onClick={() => handleDelete(item)} />
                                         </TableCell>
                                     </TableRow>
                                 )

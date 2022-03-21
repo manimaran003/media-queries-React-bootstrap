@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Box, TextField, Grid, InputLabel, Button, InputBase, InputAdornment } from '@mui/material'
 import { makeStyles, styled } from '@mui/styles';
 import { Typography } from "antd";
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import ErrorComponent from "./ErrorComponent";
+import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 const DesignTextField = styled(InputBase)({
     '& .MuiInputBase-input': {
         borderRadius: 4,
@@ -40,6 +43,12 @@ const useStyles = makeStyles({
     text: {
         color: "#fff",
         marginTop: "20px",
+    },
+    successMsg:{
+        color:"lightgreen",
+        textAlign:"center",
+        fontSize:"20px"
+
     }
 })
 
@@ -52,9 +61,11 @@ const initialState = {
 }
 let arr=[];
 const Signup = () => {
+    let navigate=useNavigate()
     const classes = useStyles()
     const [state, setState] = useState(initialState)
     const [errors, setErrors] = useState({})
+    const[showReg,setReg]=useState(false)
     const [newArray,setArray]=useState([])
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -88,6 +99,7 @@ const Signup = () => {
         const errors = handleValidation()
         console.log(Object.keys(errors).length)
         if (Object.keys(errors).length === 0) {
+
             let localData=localStorage.getItem("NEWDATA")
             if(localData){
                 let local=JSON.parse(localData)
@@ -97,8 +109,11 @@ const Signup = () => {
             else{
                 setLocalStorage()
             }
-            //arr.push(state)
-            /*setLocalStorage()*/
+            setReg(true)
+            setTimeout(()=>{
+                setReg(false)
+                navigate("/login")
+            },2000)
         }
         else {
             console.log(errors)
@@ -108,10 +123,11 @@ const Signup = () => {
     const { fname, lname, password, email } = state
     return (
         <Box>
+           {showReg && <p className={classes.successMsg}>Form Registered Successfully</p>}
             <Grid container justifyContent={'center'}>
                 <Grid item xs={12}>
                     <Grid container>
-                        <Grid  item xs={5} sm={12} md={12} lg={5} xl={5}>
+                        <Grid  item xs={5} sm={12} md={12} lg={5} xl={5.5}>
                             <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                                 Firstname
                             </DesignInputLabel>
@@ -122,7 +138,7 @@ const Signup = () => {
                         </Grid>
                         <Grid xs={2} lg={1}>
                         </Grid>
-                        <Grid xs={5} sm={12} md={12} lg={5} xl={5}>
+                        <Grid xs={5} sm={12} md={12} lg={5} xl={5.5}>
                             <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                                 lastname
                             </DesignInputLabel>

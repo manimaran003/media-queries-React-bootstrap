@@ -7,7 +7,7 @@ const CardComponent=(props)=>{
         <div className="d-flex justify-content-center">
         <img style={{height:"100px",width:"100px"}}  className=""  src={items.src}alt="..." />
         </div>
-        <button className="logo-button" style={{width:"100%",height:"50px"}}>Download</button>
+        <button className="logo-button" style={{width:"100%",height:"50px"}}>PAY</button>
       </div>
     )
 }

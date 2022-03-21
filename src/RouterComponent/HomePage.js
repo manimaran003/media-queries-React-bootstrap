@@ -4,6 +4,7 @@ import '../Home.scss'
 const HomePage = () => {
     const [data, setRender] = useState({})
     let navigate = useNavigate()
+    // i achieved component did mount in use effect
     useEffect(() => {
         let data = localStorage.getItem('NEWFILTER')
         let newData = JSON.parse(data)
@@ -38,17 +39,12 @@ const HomePage = () => {
                         </div>
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button style={{ width: "180px", height: "200px" }}>
-                                spirit1
+                                redux sample app going to implement
                             </button>
                         </div>
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button style={{ width: "180px", height: "200px" }}>
-                                spirit2
-                            </button>
-                        </div>
-                        <div className="card" style={{ width: "180px", height: "200px" }}>
-                            <button style={{ width: "180px", height: "200px" }}>
-                                spirit3
+                                learning sample app
                             </button>
                         </div>
                     </div>

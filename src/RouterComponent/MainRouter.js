@@ -7,7 +7,8 @@ import HomePage from "./HomePage";
 import ReducerComponet from '../Componets/useReducersampleApp/MainPage/ReducerComponent'
 const SubRouter = () => {
     return (
-        <div className='container-fluid main-app'>
+        <div>
+            <div className='container-fluid main-app'>
             <div className='row'>
                 <div className='col-sm-7 col-md-12 col-lg-7 sideBar-logo'>
                     <LogoComponent />
@@ -19,6 +20,7 @@ const SubRouter = () => {
                     </Routes>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
