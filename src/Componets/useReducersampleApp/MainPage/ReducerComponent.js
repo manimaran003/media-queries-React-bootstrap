@@ -7,6 +7,7 @@ import { data } from './data'
 import TableComponent from "./TableComponent";
 import ProductReducers from "./ProductReducer";
 import {Link} from 'react-router-dom'
+import AuthContext from "./auth-context";
 const useStyles = makeStyles({
     root: {
         background: "lightGreen", minHeight: "816px",
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
     }
 })
 
+
 const ReducerComponent = () => {
     const classes = useStyles()
     const [StoreProducts, dispatch] = useReducer(ProductReducers, [])
@@ -43,8 +45,14 @@ const ReducerComponent = () => {
         dispatch({ type: "EDITCART", payload: item })
     }
 
+
     return (
-        <>
+        <AuthContext.Provider value={{
+            delete: handleDelete,
+            edit:handleEdit,
+            add:HandleData,
+            products:StoreProducts,
+        }}>
             <Box>
                 <AppBar>
                     <Toolbar>
@@ -62,7 +70,7 @@ const ReducerComponent = () => {
                                                 return (
                                                     <React.Fragment key={items.id}>
                                                         <Grid item xs={12} sm={4} md={4} lg={2} xl={2}>
-                                                            <CardComponent data={items} passData={HandleData} />
+                                                            <CardComponent data={items}/>
                                                         </Grid>
                                                     </React.Fragment>
                                                 )
@@ -81,7 +89,7 @@ const ReducerComponent = () => {
                                 {
                                     StoreProducts.length === 0 ? (<Box className={classes.show}><Typography variant="h5" className={classes.text}>Nothing in the cart please buy a products</Typography></Box>) :
                                         (
-                                            <TableComponent data={StoreProducts} DeleteData={handleDelete} parent={handleEdit} />
+                                            <TableComponent/>
                                         )
                                 }
                             </Box>
@@ -89,7 +97,7 @@ const ReducerComponent = () => {
                     </Grid>
                 </Box>
             </Box>
-        </>
+            </AuthContext.Provider>
     )
 }
 

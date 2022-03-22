@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import ReactPortals from "../Componets/useReducersampleApp/portals/ReactPortals";
 import '../Home.scss'
 const HomePage = () => {
     const [data, setRender] = useState({})
@@ -18,7 +19,7 @@ const HomePage = () => {
                         data && (<>
                             <div className="d-flex justify-content-center">
                                 <div className="card d-flex justify-content-center">
-                                <div className="bg-success">
+                                <div className="success">
                                     details of user now logged in this session
                                 </div>
                                     <div>
@@ -46,6 +47,9 @@ const HomePage = () => {
                             <button style={{ width: "180px", height: "200px" }}>
                                 learning sample app
                             </button>
+                        </div>
+                        <div>
+                            <ReactPortals/>
                         </div>
                     </div>
                 </div>

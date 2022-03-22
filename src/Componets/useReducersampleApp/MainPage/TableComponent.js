@@ -1,25 +1,26 @@
-import React, { useState } from "react";
-import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow } from '@mui/material'
+import React, { useState, useContext} from "react";
+import ReactDOM from 'react-dom'
+import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow ,Tooltip} from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import ModalComponent from "../UI/ModalComponent";
+import AuthContext from "./auth-context";
 const HeadRow = [
     "id",
     "productname",
     "productprice"
 ]
-
-
-const TableComponent = (props) => {
+const TableComponent = () => {
+    let authctx = useContext(AuthContext)
     const [open, setOpen] = useState(false)
     const handleDelete = (item) => {
-        props.DeleteData(item)
+        authctx.delete(item)
     }
     const handleEdit = () => {
         setOpen(true)
     }
     const SendToReducer = (data) => {
-        props.parent(data)
+        authctx.edit(data)
     }
     const handleClose = () => {
         setOpen(false)
@@ -45,7 +46,7 @@ const TableComponent = (props) => {
                     </TableHead>
                     <TableBody>
                         {
-                            props.data.map((item) => {
+                            authctx.products.map((item) => {
                                 return (
                                     <TableRow>
                                         <TableCell key={item.id}>
@@ -59,7 +60,7 @@ const TableComponent = (props) => {
                                         </TableCell>
                                         <TableCell>
                                             <EditIcon onClick={() => handleEdit()} />
-                                            <ModalComponent open={open} close={handleClose} pass={item} NewData={SendToReducer} />
+                                         {ReactDOM.createPortal(<ModalComponent open={open} close={handleClose} pass={item} NewData={SendToReducer} />,document.getElementById("overlay"))}
                                         </TableCell>
                                         <TableCell>
                                             <DeleteIcon onClick={() => handleDelete(item)} />

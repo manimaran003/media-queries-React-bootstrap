@@ -1,10 +1,13 @@
 import { Card,CardMedia } from "@mui/material";
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
 import {data} from '../MainPage/data'
+import AuthContext from '../MainPage/auth-context'
 const CardComponent=(props)=>{
+    let authctx=useContext(AuthContext)
     const handleSubmit=(e,id)=>{
         e.preventDefault()
-        props.passData(id)
+        //props.passData(id)
+        authctx.add(id)
         // let currentValue= data.find((val)=>val.id===id)
         // console.log(currentValue)
         // props.passData({type:"ADDCART",payload:currentValue})

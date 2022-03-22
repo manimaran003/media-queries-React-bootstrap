@@ -1,5 +1,14 @@
 $color:lightGreen;
 $value:880px;
+$theme:DarkRed;
+
+@mixin theme($theme:DarkRed){
+    background:$theme;
+    color:$color
+}
+.success{
+    @include theme()
+}
 
 .main-header{
     background-color: $color;

@@ -5,7 +5,6 @@ import { Typography } from "antd";
 import { Link, Navigate } from 'react-router-dom'
 import ErrorComponent from "./ErrorComponent";
 import { useNavigate } from "react-router-dom";
-import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 const DesignTextField = styled(InputBase)({
     '& .MuiInputBase-input': {
@@ -122,6 +121,7 @@ const Signup = () => {
     }
     const { fname, lname, password, email } = state
     return (
+
         <Box>
            {showReg && <p className={classes.successMsg}>Form Registered Successfully</p>}
             <Grid container justifyContent={'center'}>
