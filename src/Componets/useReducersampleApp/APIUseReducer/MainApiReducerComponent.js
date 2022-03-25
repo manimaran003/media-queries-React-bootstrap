@@ -92,9 +92,11 @@ const MainApiReducerComponent = () => {
                         }
                         if (res.status === 200) {
                             toast("successfully edited train")
+                            refres()
+
                         }
-                        setRefreshApi(true)
-                        return dispatch({ type: "EDITAPI", payload: temp })
+                        //setRefreshApi(true)
+                        //return dispatch({ type: "EDITAPI", payload: temp })
                     })
                     .catch((err) => {
                         toast("error in editing api")
@@ -127,7 +129,7 @@ const MainApiReducerComponent = () => {
                                     <ToastContainer />
                                 </Grid>
                                 <Grid item xs={8}>
-                                    <Box sx={{ overflow: "yScroll" }}>
+                                    <Box sx={{ overflow: "yScroll",mt:6,mr:2}}>
                                         <Grid container>
                                             <Grid item xs={12}>
                                                 <Grid container spacing={2}>

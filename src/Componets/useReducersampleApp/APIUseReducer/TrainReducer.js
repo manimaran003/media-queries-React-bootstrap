@@ -3,7 +3,6 @@ const TrainReducer = (state, action) => {
     switch (action.type) {
         case "GETAPICALL":
             return [
-                ...state,
                 ...action.payload
             ]
         case "ADDAPI":
@@ -11,13 +10,11 @@ const TrainReducer = (state, action) => {
                 ...state,
                 action.payload
             ]
-        case "EDITAPI":
-            let editItemIndex = state.findIndex((item) => item.id === action.payload.id)
-            state.splice(editItemIndex, 1, action.payload)
-            console.log("refreshed reducer=>",state)
-            return state
-
-
+        // case "EDITAPI":
+        //     let editItemIndex = state.findIndex((item) => item.id === action.payload.id)
+        //     state.splice(editItemIndex, 1, action.payload)
+        //     console.log("refreshed reducer=>",state)
+        //     return state
         case "DELETEAPI":
             return state.filter((item) => item.id !== action.payload)
         case "SEARCHAPI":
