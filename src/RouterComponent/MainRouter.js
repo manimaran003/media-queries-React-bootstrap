@@ -6,6 +6,7 @@ import SignUpComponent from '../Componets/CssModuleslocalStorage/SignUpComponent
 import HomePage from "./HomePage";
 import ReducerComponet from '../Componets/useReducersampleApp/MainPage/ReducerComponent'
 import MainApiReducerComponent from '../Componets/useReducersampleApp/APIUseReducer/MainApiReducerComponent'
+import TrainRedux from "../Componets/useReducersampleApp/ReduxApp/TrainRedux";
 const SubRouter = () => {
     return (
         <div>
@@ -33,6 +34,7 @@ const MainRouter = () => {
                 <Route path="/homepage" element={<HomePage/>}/>
                 <Route path="/reducerapp" element={<ReducerComponet/>}/>
                 <Route path="/apireducer" element={<MainApiReducerComponent/>}/>
+                <Route path="/reduxapi" element={<TrainRedux/>}/>
             </Routes>
         </>
     )
