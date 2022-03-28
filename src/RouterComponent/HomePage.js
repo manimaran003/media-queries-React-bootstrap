@@ -38,13 +38,13 @@ const HomePage = () => {
                             </button>
                         </div>
                         <div className="card" style={{ width: "180px", height: "200px" }}>
-                            <button style={{ width: "180px", height: "200px" }}>
-                                redux sample app going to implement
+                            <button onClick={() => navigate("/apireducer")} style={{ width: "180px", height: "200px" }}>
+                               use reducer api call train admin 
                             </button>
                         </div>
                         <div className="card" style={{ width: "180px", height: "200px" }}>
-                            <button style={{ width: "180px", height: "200px" }}>
-                                learning sample app
+                            <button onClick={() => navigate("/reduxapi")} style={{ width: "180px", height: "200px" }}>
+                               Redux sample app train booking 
                             </button>
                         </div>
                         <div>

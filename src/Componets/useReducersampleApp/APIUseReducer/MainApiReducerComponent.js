@@ -51,7 +51,7 @@ const MainApiReducerComponent = () => {
     }
 
     const SearchFilter = (data) => {
-        console.log(data.from)
+        //console.log(data.from)
         dispatch({ type: "SEARCHAPI", payload: data.from })
     }
     const AddNewTrain = (data) => {
@@ -64,6 +64,7 @@ const MainApiReducerComponent = () => {
                 })
                 .catch((err) => {
                     console.log(err)
+                    toast("error added new train")
                 })
         })()
     }
@@ -113,11 +114,11 @@ const MainApiReducerComponent = () => {
                 edit: EditTrain,
             }}>
                 <Box>
-                    <AppBar className={classes.root}>
+                    {/* <AppBar className={classes.root}>
                         <Toolbar>
                             <ApiHeader />
                         </Toolbar>
-                    </AppBar>
+                    </AppBar> */}
                     <Box sx={{ mt: 8 }}>
                         <Box className={classes.Hero}>
                             <Grid container>

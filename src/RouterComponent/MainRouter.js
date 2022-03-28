@@ -7,6 +7,9 @@ import HomePage from "./HomePage";
 import ReducerComponet from '../Componets/useReducersampleApp/MainPage/ReducerComponent'
 import MainApiReducerComponent from '../Componets/useReducersampleApp/APIUseReducer/MainApiReducerComponent'
 import TrainRedux from "../Componets/useReducersampleApp/ReduxApp/TrainRedux";
+import Header from '../Componets/useReducersampleApp/APIUseReducer/ApiHeader'
+import { Toolbar,AppBar,Box } from "@mui/material";
+import BookTrain from '../Componets/useReducersampleApp/ReduxApp/TrainUi/BookTrain'
 const SubRouter = () => {
     return (
         <div>
@@ -29,13 +32,25 @@ const SubRouter = () => {
 const MainRouter = () => {
     return (
         <>
-            <Routes>
+        <header>
+            <Box>
+                <AppBar position="fixed">
+                    <Toolbar>
+                        <Header/>
+                    </Toolbar>
+                </AppBar>
+            </Box>
+        </header>
+        <body>
+        <Routes>
                 <Route path="*" element={<SubRouter />} />
                 <Route path="/homepage" element={<HomePage/>}/>
                 <Route path="/reducerapp" element={<ReducerComponet/>}/>
                 <Route path="/apireducer" element={<MainApiReducerComponent/>}/>
                 <Route path="/reduxapi" element={<TrainRedux/>}/>
+                <Route path="/bookTrain/:id" element={<BookTrain/>}/>
             </Routes>
+        </body>
         </>
     )
     }

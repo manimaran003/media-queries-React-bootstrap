@@ -30,10 +30,10 @@ const TrainRedux = () => {
                                 <Grid container>
                                     <Grid item xs={12}>
                                         <Grid container spacing={2}>
-                                            <Grid item xs={12} sm={12} md={6} lg={6} xl={3}><TrainCard/></Grid>
-                                            <Grid item xs={12}  sm={12} md={6} lg={6} xl={3}><TrainCard/></Grid>
-                                            <Grid item xs={12}  sm={12} md={6} lg={6} xl={3}><TrainCard/></Grid>
-                                            <Grid item xs={12}  sm={12} md={6} lg={6} xl={3}><TrainCard/></Grid>
+                                            <Grid item xs={12} sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
+                                            <Grid item xs={12}  sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
+                                            <Grid item xs={12}  sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
+                                            <Grid item xs={12}  sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
                                         </Grid>
                                     </Grid>
                                 </Grid>

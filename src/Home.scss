@@ -1,5 +1,5 @@
 $color:lightGreen;
-$value:880px;
+$value:912px;
 $theme:DarkRed;
 
 @mixin theme($theme:DarkRed){
@@ -13,5 +13,6 @@ $theme:DarkRed;
 .main-header{
     background-color: $color;
     height: $value;
+    padding-top: 80px;
 }
 

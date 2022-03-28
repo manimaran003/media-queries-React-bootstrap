@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     },
     btn: {
         width: "100%",
-        background: "blue",
         marginTop: "20px !important"
     }
 

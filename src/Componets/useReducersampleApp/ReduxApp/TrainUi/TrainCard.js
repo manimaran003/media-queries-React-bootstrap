@@ -1,11 +1,16 @@
-import React,{useContext, useState} from 'react'
-import { Card, CardActions, CardContent, CardMedia, Typography ,Button,Grid} from '@mui/material'
+import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Card, CardActions, CardContent, CardMedia, Typography, Button, Grid } from '@mui/material'
 const TrainCard = () => {
+    let navigate=useNavigate()
+    const handleBook=(e,id)=>{
+        e.preventDefault()
+        navigate(`/bookTrain/${id}`)
+    }
     return (
         <>
-          
-            
-               <Card sx={{ maxWidth: 345 }}>
+
+            <Card sx={{ minWidth: 250, mt: 2 }}>
                 <CardMedia
                     component="img"
                     height="140"
@@ -17,17 +22,17 @@ const TrainCard = () => {
                         from :dfdf  to:sds
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                       time: ss
+                        time: ss
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         arrival: sds
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">BookTrain</Button>
+                    <Button size="small" onClick={(e)=>handleBook(e,1)}>BookTrain</Button>
                 </CardActions>
             </Card>
-           
+
         </>
     )
 }

@@ -1,14 +1,14 @@
 .main-app{
-  height:880px;
+  height:900px;
   background-image: url('https://i.pinimg.com/736x/06/26/13/062613231a04bcea7bdbe83a8ad1c63c.jpg') !important;
 }
 .sideBar-logo{
-  height:880px;
+  height:900px;
   background-color:#fff;
   display: none;
 }
 .sideBar-login{
-  height:880px;
+  height:912px;
   background-color:#07127b;
   display: block;
 }
@@ -61,7 +61,7 @@
 
 @media (min-width: 576px) { 
   .sideBar-logo{
-    height:880px;
+    height:900px;
     background-color:#fff;
     display: none;
   }
@@ -70,7 +70,7 @@
 
 @media (min-width: 768px) { 
   .sideBar-logo{
-    height:880px;
+    height:900px;
     background-color:#fff;
     display: none;
   }
@@ -79,7 +79,7 @@
 
 @media (min-width: 992px) { 
   .sideBar-logo{
-    height:880px;
+    height:900px;
     background-color:#fff;
     display: flex;
   }
@@ -88,7 +88,7 @@
 
 @media (min-width: 1200px) { 
   .sideBar-logo{
-    height:880px;
+    height:900px;
     background-color:#fff;
     display: block;
   }

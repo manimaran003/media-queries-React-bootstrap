@@ -12,7 +12,7 @@ const InputBox = styled(InputBase)(({ theme }) => ({
         backgroundColor: '#fcfcfb',
         border: '1px solid #ced4da',
         fontSize: 16,
-        width: 'auto',
+        width:"100%",
         padding: '10px 12px',
     }
 }))
@@ -60,11 +60,11 @@ const SearchTrainUi = () => {
                             <Grid container spacing={1}>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <Typography>From</Typography>
-                                    <InputBox  />
+                                    <InputBox fullWidth/>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <Typography>To</Typography>
-                                    <InputBox />
+                                    <InputBox fullWidth />
                                 </Grid>
                             </Grid>
                             <Box className={classes.alignBox}>

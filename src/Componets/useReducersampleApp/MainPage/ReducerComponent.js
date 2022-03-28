@@ -54,12 +54,12 @@ const ReducerComponent = () => {
             products:StoreProducts,
         }}>
             <Box>
-                <AppBar>
+                {/* <AppBar>
                     <Toolbar>
                         <Header />
                     </Toolbar>
-                </AppBar>
-                <Box sx={{ mt: 8 }}>
+                </AppBar> */}
+                <Box sx={{ mt: 11 }}>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.root}>
                             <Grid container>
