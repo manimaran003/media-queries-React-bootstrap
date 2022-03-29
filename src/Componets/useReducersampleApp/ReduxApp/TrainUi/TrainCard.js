@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, CardActions, CardContent, CardMedia, Typography, Button, Grid } from '@mui/material'
-const TrainCard = () => {
+const TrainCard = (props) => {
+    const {from,to,trainNumber,arrival,time,id}=props.items
     let navigate=useNavigate()
     const handleBook=(e,id)=>{
         e.preventDefault()
@@ -18,18 +19,21 @@ const TrainCard = () => {
                     alt="green iguana"
                 />
                 <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                        trainNumber:{trainNumber}
+                    </Typography>
                     <Typography gutterBottom variant="h5" component="div">
-                        from :dfdf  to:sds
+                        from :{from}  to:{to}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        time: ss
+                        time: {time}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        arrival: sds
+                        arrival: {arrival}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={(e)=>handleBook(e,1)}>BookTrain</Button>
+                    <Button size="small" onClick={(e)=>handleBook(e,id)}>BookTrain</Button>
                 </CardActions>
             </Card>
 

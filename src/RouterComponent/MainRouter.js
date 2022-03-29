@@ -41,7 +41,7 @@ const MainRouter = () => {
                 </AppBar>
             </Box>
         </header>
-        <body>
+        
         <Routes>
                 <Route path="*" element={<SubRouter />} />
                 <Route path="/homepage" element={<HomePage/>}/>
@@ -50,7 +50,7 @@ const MainRouter = () => {
                 <Route path="/reduxapi" element={<TrainRedux/>}/>
                 <Route path="/bookTrain/:id" element={<BookTrain/>}/>
             </Routes>
-        </body>
+        
         </>
     )
     }

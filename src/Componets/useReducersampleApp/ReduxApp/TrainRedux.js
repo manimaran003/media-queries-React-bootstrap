@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, Box, AppBar, Toolbar } from '@mui/material'
 import TrainHeader from './TrainUi/TrainHeader';
 import { makeStyles } from '@mui/styles'
 import SearchTrainUi from './TrainUi/SearchTrainUi';
 import TrainCard from './TrainUi/TrainCard'
+import {getTrain} from '../ReduxFIles/Actions/ActionTrain'
+import { useSelector,useDispatch } from 'react-redux';
 const useStyles = makeStyles({
     hero_section: {
         minHeight: "848px",
@@ -12,6 +14,12 @@ const useStyles = makeStyles({
 })
 const TrainRedux = () => {
     const classes = useStyles();
+    const dispatch=useDispatch()
+    let data=useSelector(state=>state.PostReducer)
+    console.log("tri",data.trips)
+    useEffect(()=>{
+        dispatch(getTrain())
+    },[])
     return (
         <>
             <Box>
@@ -30,10 +38,14 @@ const TrainRedux = () => {
                                 <Grid container>
                                     <Grid item xs={12}>
                                         <Grid container spacing={2}>
-                                            <Grid item xs={12} sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
-                                            <Grid item xs={12}  sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
-                                            <Grid item xs={12}  sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
-                                            <Grid item xs={12}  sm={6} md={6} lg={6} xl={3}><TrainCard/></Grid>
+                                           {
+                                               data.trips && data?.trips.map((item)=>{
+                                                   return (
+                                                    <Grid item xs={12} sm={6} md={6} lg={6} xl={3} key={item.id}><TrainCard items={item}/></Grid>
+                                                   )
+                                               })
+                                           }
+                                                    
                                         </Grid>
                                     </Grid>
                                 </Grid>
