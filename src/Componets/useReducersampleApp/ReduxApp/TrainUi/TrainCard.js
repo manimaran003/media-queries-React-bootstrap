@@ -36,7 +36,6 @@ const TrainCard = (props) => {
                     <Button size="small" onClick={(e)=>handleBook(e,id)}>BookTrain</Button>
                 </CardActions>
             </Card>
-
         </>
     )
 }
