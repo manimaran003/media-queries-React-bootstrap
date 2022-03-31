@@ -10,6 +10,8 @@ import TrainRedux from "../Componets/useReducersampleApp/ReduxApp/TrainRedux";
 import Header from '../Componets/useReducersampleApp/APIUseReducer/ApiHeader'
 import { Toolbar,AppBar,Box } from "@mui/material";
 import BookTrain from '../Componets/useReducersampleApp/ReduxApp/TrainUi/BookTrain'
+import { AppState } from "../Componets/useReducersampleApp/Mobx/AppState";
+import SampleCounter from "../Componets/useReducersampleApp/Mobx/SampleCounter";
 const SubRouter = () => {
     return (
         <div>
@@ -49,6 +51,7 @@ const MainRouter = () => {
                 <Route path="/apireducer" element={<MainApiReducerComponent/>}/>
                 <Route path="/reduxapi" element={<TrainRedux/>}/>
                 <Route path="/bookTrain/:id" element={<BookTrain/>}/>
+                <Route path="/mobxApp" element={<SampleCounter store={AppState} />}/>
             </Routes>
         
         </>
