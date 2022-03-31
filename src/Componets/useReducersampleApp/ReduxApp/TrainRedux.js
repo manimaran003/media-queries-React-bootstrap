@@ -6,6 +6,7 @@ import SearchTrainUi from './TrainUi/SearchTrainUi';
 import TrainCard from './TrainUi/TrainCard'
 import {getTrain} from '../ReduxFIles/Actions/ActionTrain'
 import { useSelector,useDispatch } from 'react-redux';
+import { toast,ToastContainer } from 'react-toastify';
 const useStyles = makeStyles({
     hero_section: {
         minHeight: "848px",
@@ -16,9 +17,13 @@ const TrainRedux = () => {
     const classes = useStyles();
     const dispatch=useDispatch()
     let data=useSelector(state=>state.PostReducer)
+    console.log("error",data.error)
     console.log("tri",data.trips)
     useEffect(()=>{
         dispatch(getTrain())
+        if(data.error){
+            toast("error in get api")
+        }
     },[])
     return (
         <>
@@ -28,6 +33,7 @@ const TrainRedux = () => {
                         <TrainHeader />
                     </Toolbar>
                 </AppBar>
+                <ToastContainer/>
                 <Box sx={{ mt: 8 }}>
                     <Box className={classes.hero_section}>
                         <Grid container>

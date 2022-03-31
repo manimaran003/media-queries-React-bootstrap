@@ -9,6 +9,8 @@ export const PostReducer=(state=initialState,action)=>{
             return {delete:action.data}
             case ActionTypes.AddSuccess:
             return {add:action.data}
+            case ActionTypes.getError:
+                return {error:action.data}
             case ActionTypes.userTrain:
                 console.log('USERTRAIN',action.payload)
                 return {userTrain:action.payload}

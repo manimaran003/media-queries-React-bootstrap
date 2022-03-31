@@ -6,5 +6,6 @@ export const ActionTypes={
     DELSuccess:"DELSuccess",
     AddSuccess:"ADDSuccess",
     userTrain:"userTrain",
-    EditUser:"EditUser"
+    EditUser:"EditUser",
+    getError:"getError"
 }
