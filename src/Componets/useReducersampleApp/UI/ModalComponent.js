@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import { Box, Button, Typography, TextField, Modal } from '@mui/material'
 const style = {
   position: "absolute",
@@ -18,6 +18,11 @@ const ModalComponent = (props) => {
     ProductPrice: props.pass.ProductPrice
   }
   const [state, setState] = useState(initialValues)
+  useEffect(()=>{
+    if(props.pass){
+      setState(props.pass)
+    }
+  },[props.pass])
   const handleChange = (e) => {
     setState({
       ...state,
@@ -48,7 +53,7 @@ const ModalComponent = (props) => {
               alignItems: "center",
             }}
           >
-            <Typography>Name</Typography>
+            <Typography>ProductName</Typography>
             <TextField
               name="ProductName"
               value={state.ProductName}
@@ -63,7 +68,7 @@ const ModalComponent = (props) => {
               alignItems: "center",
             }}
           >
-            <Typography>Email</Typography>
+            <Typography>ProductPrice</Typography>
             <TextField
               name="ProductPrice"
               value={state.ProductPrice}

@@ -8,7 +8,7 @@ export const loadCategories = categories => ({
 //admin train api call
 export const getTrain=()=>{
     return async (dispatch)=>{
-        let apiUrl="http://localhost:3006/Train"
+        let apiUrl="http://localhost:3006/Trains"
         axios.get(apiUrl)
         .then((res)=>{
             console.log("response=>get",res.data)

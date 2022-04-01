@@ -13,11 +13,13 @@ const HeadRow = [
 const TableComponent = () => {
     let authctx = useContext(AuthContext)
     const [open, setOpen] = useState(false)
+    const[editData,setEditdata]=useState({})
     const handleDelete = (item) => {
         authctx.delete(item)
     }
-    const handleEdit = () => {
+    const handleEdit = (item) => {
         setOpen(true)
+        setEditdata(item)
     }
     const SendToReducer = (data) => {
         authctx.edit(data)
@@ -59,8 +61,7 @@ const TableComponent = () => {
                                             {item.ProductPrice}
                                         </TableCell>
                                         <TableCell>
-                                            <EditIcon onClick={() => handleEdit()} />
-                                         {ReactDOM.createPortal(<ModalComponent open={open} close={handleClose} pass={item} NewData={SendToReducer} />,document.getElementById("overlay"))}
+                                            <EditIcon onClick={() => handleEdit(item)} />
                                         </TableCell>
                                         <TableCell>
                                             <DeleteIcon onClick={() => handleDelete(item)} />
@@ -69,6 +70,7 @@ const TableComponent = () => {
                                 )
                             })
                         }
+                        {ReactDOM.createPortal(<ModalComponent open={open} close={handleClose} pass={editData} NewData={SendToReducer} />,document.getElementById("overlay"))}
                     </TableBody>
                 </Table>
             </TableContainer>

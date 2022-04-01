@@ -9,6 +9,5 @@ const middleware=[ThunkMiddleware,logger]
 function configureStore(initalState){
     return createStore(RootReducer,initalState,applyMiddleware(...middleware))
 }
-
 const store=configureStore()
 export default store

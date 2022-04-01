@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { Grid, Box, AppBar, Toolbar } from '@mui/material'
-import TrainHeader from './TrainUi/TrainHeader';
+import { Grid, Box } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import SearchTrainUi from './TrainUi/SearchTrainUi';
 import TrainCard from './TrainUi/TrainCard'
@@ -28,11 +27,11 @@ const TrainRedux = () => {
     return (
         <>
             <Box>
-                <AppBar>
+                {/* <AppBar>
                     <Toolbar>
                         <TrainHeader />
                     </Toolbar>
-                </AppBar>
+                </AppBar> */}
                 <ToastContainer/>
                 <Box sx={{ mt: 8 }}>
                     <Box className={classes.hero_section}>
@@ -50,8 +49,7 @@ const TrainRedux = () => {
                                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={3} key={item.id}><TrainCard items={item}/></Grid>
                                                    )
                                                })
-                                           }
-                                                    
+                                           }     
                                         </Grid>
                                     </Grid>
                                 </Grid>
