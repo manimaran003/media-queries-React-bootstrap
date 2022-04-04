@@ -1,17 +1,18 @@
 import { Route, Router, Routes } from "react-router-dom";
-import React from "react";
+import React,{Suspense} from "react";
 import LogoComponent from '../Componets/CssModuleslocalStorage/imageContainer/LogoComponent'
 import LoginComponent from '../Componets/CssModuleslocalStorage/LoginComponent/LoginComponent'
 import SignUpComponent from '../Componets/CssModuleslocalStorage/SignUpComponent/SignUpComponent'
 import HomePage from "./HomePage";
 import ReducerComponet from '../Componets/useReducersampleApp/MainPage/ReducerComponent'
 import MainApiReducerComponent from '../Componets/useReducersampleApp/APIUseReducer/MainApiReducerComponent'
-import TrainRedux from "../Componets/useReducersampleApp/ReduxApp/TrainRedux";
+//import TrainRedux from "../Componets/useReducersampleApp/ReduxApp/TrainRedux";
 import Header from '../Componets/useReducersampleApp/APIUseReducer/ApiHeader'
 import { Toolbar,AppBar,Box } from "@mui/material";
 import BookTrain from '../Componets/useReducersampleApp/ReduxApp/TrainUi/BookTrain'
 import { AppState } from "../Componets/useReducersampleApp/Mobx/AppState";
 import SampleCounter from "../Componets/useReducersampleApp/Mobx/SampleCounter";
+const TrainRedux=React.lazy(()=>import("../Componets/useReducersampleApp/ReduxApp/TrainRedux"))
 const SubRouter = () => {
     return (
         <div>
@@ -34,6 +35,7 @@ const SubRouter = () => {
 const MainRouter = () => {
     return (
         <>
+         <Suspense fallback={<p>...loading</p>}>
         <header>
             <Box>
                 <AppBar position="fixed">
@@ -53,8 +55,8 @@ const MainRouter = () => {
                 <Route path="/bookTrain/:id" element={<BookTrain/>}/>
                 <Route path="/mobxApp" element={<SampleCounter store={AppState} />}/>
             </Routes>
-        
-        </>
+            </Suspense>
+            </>
     )
     }
 export default MainRouter

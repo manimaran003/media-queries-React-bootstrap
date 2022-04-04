@@ -2,7 +2,6 @@ import  ThunkMiddleware  from "redux-thunk";
 import logger from "redux-logger";
 import { createStore,applyMiddleware } from "redux";
 import { RootReducer } from "./RootReducer";
-// import {ThunkMiddleware} from 'redux-thunk';
 
 const middleware=[ThunkMiddleware,logger]
 

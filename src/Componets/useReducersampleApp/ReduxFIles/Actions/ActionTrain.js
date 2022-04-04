@@ -60,6 +60,7 @@ export const editUser=(id,data)=>{
         await axios.put(apiUrl,data)
         .then((res)=>{
             console.log("firstcall after",data)
+            //refreshing api call
             dispatch(getUser())
             dispatch({type:ActionTypes.EditUser,payload:"successfully edited data"})
         })

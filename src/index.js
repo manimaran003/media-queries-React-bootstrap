@@ -9,7 +9,6 @@ import { configure } from "mobx";
 configure({
   enforceActions: "always",
 })
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
