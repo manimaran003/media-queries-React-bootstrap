@@ -6,7 +6,7 @@ import SignUpComponent from '../Componets/CssModuleslocalStorage/SignUpComponent
 import HomePage from "./HomePage";
 import ReducerComponet from '../Componets/useReducersampleApp/MainPage/ReducerComponent'
 import MainApiReducerComponent from '../Componets/useReducersampleApp/APIUseReducer/MainApiReducerComponent'
-import TrainRedux from "../Componets/useReducersampleApp/ReduxApp/TrainRedux";
+//import TrainRedux from "../Componets/useReducersampleApp/ReduxApp/TrainRedux";
 import Header from '../Componets/useReducersampleApp/APIUseReducer/ApiHeader'
 import { Toolbar,AppBar,Box } from "@mui/material";
 import BookTrain from '../Componets/useReducersampleApp/ReduxApp/TrainUi/BookTrain'
