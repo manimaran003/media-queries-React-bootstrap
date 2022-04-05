@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 })
 const TrainRedux = () => {
     const classes = useStyles();
-    const dispatch=useDispatch()
+    let dispatch=useDispatch()
     let data=useSelector(state=>state.PostReducer)
     console.log("error",data.error)
     console.log("tri",data.trips)
@@ -37,6 +37,7 @@ const TrainRedux = () => {
                     <Box className={classes.hero_section}>
                         <Grid container>
                             <Grid item xs={12} sm={12} md={6} lg={5} xl={4}>
+                            <p>hai</p>
                                 <SearchTrainUi />
                             </Grid>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={8}>

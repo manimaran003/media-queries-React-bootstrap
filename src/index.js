@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import App from './App'
+//import {AppWrapper} from './App'
 import store from './Componets/useReducersampleApp/ReduxFIles/Reducers/Index'
-import {Provider} from 'react-redux'
-import { configure } from "mobx";
-configure({
-  enforceActions: "always",
-})
+import {Provider, useDispatch} from 'react-redux'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+    <App/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
