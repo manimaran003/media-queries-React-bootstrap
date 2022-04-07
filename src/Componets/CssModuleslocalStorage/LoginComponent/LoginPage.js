@@ -10,7 +10,7 @@ const LoginPage = () => {
     const [errors, setErrors] = useState({})
     const [data,storageData]=useState()
     const [showModal,setModal]=useState(false)
-    let navigate=useNavigate()
+    // let navigate=useNavigate()
     useEffect(()=>{
         getLocalStorage()
     },[])
@@ -50,7 +50,7 @@ const LoginPage = () => {
             if (email === state.username && password===state.password) {
                 setModal(false)
                 localStorage.setItem("NEWFILTER",JSON.stringify(saveData))
-                navigate("/homepage")
+                // navigate("/homepage")
             }
             else{
                 setModal(true)
@@ -70,8 +70,8 @@ const LoginPage = () => {
                         <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
                         <div className="input-group mb-3">
                             <span className="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" name="username" value={state.username} onChange={handleChange} className="form-control is-invalid" placeholder="Username" id="exampleFormControlInput1" />
-                            <div className="invalid-feedback">
+                            <input type="email" name="username" value={state.username} onChange={handleChange} className="form-control is-invalid" placeholder="Username"  id="exampleFormControlInput1" />
+                            <div className="invalid-feedback" id="err1">
                                 {errors.username}
                             </div>
                         </div>
@@ -79,7 +79,7 @@ const LoginPage = () => {
                         <div className="input-group mb-3">
                             <span className="input-group-text" id="basic-addon1">@</span>
                             <input type="password" name="password" value={state.password} onChange={handleChange} className="form-control is-invalid" placeholder="Password" aria-label="Username" id="exampleFormControlInput2" aria-describedby="basic-addon1" />
-                            <div className="invalid-feedback">
+                            <div className="invalid-feedback" id="err2">
                                 {errors.password}
                             </div>
                         </div>
@@ -91,9 +91,9 @@ const LoginPage = () => {
                         </div>
                     </form>
                 </div>
-                <div className="d-flex justify-content-center mt-3">
+                {/* <div className="d-flex justify-content-center mt-3">
                     <p>Dont have an account? <Link to="/Signup">Signup</Link></p>
-                </div>
+                </div> */}
             </div>
         </>
     )

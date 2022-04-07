@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { Box, Grid, Typography, Button, FormControl, InputBase } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import ProcessedCard from "./ProcessedCard";
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addUser } from "../../ReduxFIles/Actions/ActionTrain";
 import { useParams } from "react-router-dom";
@@ -42,14 +42,14 @@ const useStyles = makeStyles({
 })
 const BookTrain = () => {
     const [value, setValue] = useState({})
-    const[btn,setBtn]=useState(false)
-    const[open,setOpen]=useState(false)
+    const [btn, setBtn] = useState(false)
+    const [open, setOpen] = useState(false)
     // const[bind,setBind]=useState({})
     // const[types,settype]=useState("add")
-    let dispatch=useDispatch()
+    let dispatch = useDispatch()
     const data = useSelector(state => state.PostReducer.trips)
     // /console.log("dat",data && data)
-     let { id } = useParams()
+    let { id } = useParams()
     useEffect(() => {
         let value = data ? data.find((item) => item.id === id) : ""
         setValue(value)
@@ -57,8 +57,8 @@ const BookTrain = () => {
     console.log("value", value)
     const classes = useStyles()
     let initialValues = {
-        passengerName:"",
-        passengerAge:""
+        passengerName: "",
+        passengerAge: ""
     }
     const [state, setState] = useState(initialValues)
     const handleChange = (e) => {
@@ -68,20 +68,20 @@ const BookTrain = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         // if(type==="add"){
-            let temp = {
-                id:uuidv4(),
-                from: value.from,
-                to: value.to,
-                time: value.time,
-                arrival: value.arrival,
-                passengerName: state.passengerName,
-                passengerAge: state.passengerAge,
-                trainName:value.trainName
-            }
-            dispatch(addUser(temp))
-             setOpen(true)
-             setBtn(true)
-            handleReset()
+        let temp = {
+            id: uuidv4(),
+            from: value.from,
+            to: value.to,
+            time: value.time,
+            arrival: value.arrival,
+            passengerName: state.passengerName,
+            passengerAge: state.passengerAge,
+            trainName: value.trainName
+        }
+        dispatch(addUser(temp))
+        setOpen(true)
+        setBtn(true)
+        handleReset()
         // }
         // if(type==="edit"){
         //     console.log("edit clciked")
@@ -99,10 +99,10 @@ const BookTrain = () => {
         //     setOpen(true)
         // }
     }
-    const handleReset=()=>{
+    const handleReset = () => {
         initialValues = {
             passengerName: "",
-            passengerAge:""
+            passengerAge: ""
         }
         setState(initialValues)
     }
@@ -170,9 +170,9 @@ const BookTrain = () => {
                                 <Typography variant="h5">Your Booked processed Train</Typography>
                             </Box>
                             <Box className={classes.bookBox}>
-                            {
-                                open && (  <ProcessedCard/>)
-                            }
+                                {
+                                    open && (<ProcessedCard />)
+                                }
                             </Box>
                         </Grid>
                     </Grid>
