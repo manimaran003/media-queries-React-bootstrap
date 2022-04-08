@@ -47,6 +47,12 @@ const HomePage = () => {
                                Redux sample app train booking 
                             </button>
                         </div>
+                        <div className="card" style={{ width: "180px", height: "200px" }}>
+                            <button onClick={() => navigate("/typeEvent")} style={{ width: "180px", height: "200px" }}>
+                              typeScript sample app in prop passing crud operation
+                            </button>
+                        </div>
+
                         <div>
                           
                         </div>
