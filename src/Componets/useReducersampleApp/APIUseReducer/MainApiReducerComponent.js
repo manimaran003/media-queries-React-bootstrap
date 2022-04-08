@@ -36,6 +36,9 @@ const MainApiReducerComponent = () => {
                 console.log(err)
                 toast("error in api")
             })
+            .finally(()=>{
+                console.log("okay success or failed")
+            })
     }, [])
 
     const refres = () => {
@@ -46,7 +49,6 @@ const MainApiReducerComponent = () => {
             })
             .catch((err) => {
                 console.log("error", err)
-
             })
     }
 
@@ -67,6 +69,7 @@ const MainApiReducerComponent = () => {
                     toast("error added new train")
                 })
         })()
+        
     }
     const DeleteTrain = (id) => {
         (async () => {

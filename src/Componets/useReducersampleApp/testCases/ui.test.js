@@ -31,13 +31,14 @@ describe("login form input box test cases",()=>{
         const inputEl=document.getElementById("exampleFormControlInput1")
         expect(inputEl).toBeInTheDocument()
         expect(inputEl).toHaveAttribute("type","email")
-        fireEvent.change(inputEl,{target:{value:"test@gmail.com"}})
+        // fireEvent.change(inputEl,{target:{value:"test@gmail.com"}})
         // const msg=screen.getByText(/test@gmail.com/i)
         // expect(msg).toBeInTheDocument()
         // const inputEls=document.getElementById("exampleFormControlInput2")
         // expect(inputEls).toBeInTheDocument()
         // expect(inputEls).toHaveAttribute("type","password")
         fireEvent.click(screen.getByRole('button'))
+        expect(handleSubmit).toHaveBeenCalled()
     })
 
     test("pass a vaid email type and check not want show error msg",()=>{
