@@ -12,7 +12,8 @@ import { Toolbar,AppBar,Box } from "@mui/material";
 import BookTrain from '../Componets/useReducersampleApp/ReduxApp/TrainUi/BookTrain'
 import { AppState } from "../Componets/useReducersampleApp/Mobx/AppState";
 import SampleCounter from "../Componets/useReducersampleApp/Mobx/SampleCounter";
-import EventPage from '../Componets/TypeScriptProjects/EventPage.tsx'
+import EventPage from '../Componets/TypeScriptProjects/UsereducerTs/EventPage.tsx'
+import MainTodo from '../Componets/TypeScriptProjects/SampleTutorialTs/MainTodo.tsx'
 const TrainRedux=React.lazy(()=>import("../Componets/useReducersampleApp/ReduxApp/TrainRedux"))
 const SubRouter = () => {
     return (
@@ -56,6 +57,7 @@ const MainRouter = () => {
                 <Route path="/bookTrain/:id" element={<BookTrain/>}/>
                 <Route path="/mobxApp" element={<SampleCounter store={AppState} />}/>
                 <Route path="/typeEvent" element={<EventPage/>}/>
+                <Route path="/todoTs" element={<MainTodo/>}/>
             </Routes>
             </Suspense>
             </>

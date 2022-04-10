@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App'
 //import {AppWrapper} from './App'
 import store from './Componets/useReducersampleApp/ReduxFIles/Reducers/Index'
-import {Provider, useDispatch} from 'react-redux'
+import {Provider} from 'react-redux'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
