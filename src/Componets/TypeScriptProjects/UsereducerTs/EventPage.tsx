@@ -23,7 +23,7 @@ const useStyles = makeStyles({
         border: "2px solid lightGreen"
     },
 })
-const EventPage: React.FC = () => {
+const EventPage: React.FC= () => {
     const classes = useStyles();
     const [StoreEvent, dispatch] = useReducer(ReducerTs, [])
     console.log(StoreEvent)
@@ -40,12 +40,22 @@ const EventPage: React.FC = () => {
                 console.log("okay success or failed")
             })
     }, [])
+    const refres = ():void => {
+        axios.get('http://localhost:3004/Events')
+            .then((res:any) => {
+                console.log(res.data)
+                return dispatch({ type: "GETAPI", payload: res.data })
+            })
+            .catch((err:string) => {
+                console.log("error", err)
+            })
+    }
     const BookNew = (state: {}): void => {
         (
             async () => {
                 await axios.post("http://localhost:3004/Events", state)
                     .then((res: any) => {
-                        dispatch({ type: "POSTAPI", payload: res.data })
+                        dispatch({ type: "POSTAPI",payload: res.data })
                     })
                     .catch(err => {
                         console.log(err)
@@ -53,6 +63,23 @@ const EventPage: React.FC = () => {
             }
         )();
     }
+
+    const handleDelete=(id:string):void =>{
+        (
+            async () => {
+                await axios.delete(`http://localhost:3004/Events/${id}`)
+                    .then((res: any) => {
+                        //dispatch({ type: "DELETEAPI",payload: res.data })
+                        refres()
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }
+        )();
+
+    }
+
     return (
         <>
             <Box className={classes.root}>
@@ -62,7 +89,7 @@ const EventPage: React.FC = () => {
                             <BookEvent add={BookNew} />
                         </Grid>
                         <Grid item xs={6}>
-                            <TableComponent store={StoreEvent} />
+                            <TableComponent store={StoreEvent} delete={handleDelete}/>
                         </Grid>
                     </Grid>
                 </Box>

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import ReactDOM from 'react-dom'
-import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow, Tooltip } from '@mui/material'
+import { useNavigate } from "react-router-dom";
+import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DataModel from './DataModel'
@@ -12,8 +12,13 @@ const HeadRow = [
     "",
     ""
 ]
-const TableComponent: React.FC<{ store: any }> = (props) => {
+const TableComponent: React.FC<{ store: any; delete:(id:string)=>void  }> = (props) => {
     console.log(props.store)
+    let navigate=useNavigate()
+    const handleDelete=(e:React.MouseEvent<HTMLButtonElement>,id:string)=>{
+        e.preventDefault()
+        props.delete(id)
+    }
     return (
         <>
             <TableContainer component={Paper}>
@@ -42,8 +47,8 @@ const TableComponent: React.FC<{ store: any }> = (props) => {
                                 <TableCell align="left">{row.eventName}</TableCell>
                                 <TableCell align="left">{row.members}</TableCell>
                                 <TableCell align="left">{row.time}</TableCell>
-                                <TableCell align="left"><EditIcon /></TableCell>
-                                <TableCell align="left"><DeleteIcon /></TableCell>
+                                <TableCell align="left"><EditIcon onClick={()=>navigate(`/EditEvent/${row.id}`)}/></TableCell>
+                                <TableCell align="left"><IconButton><DeleteIcon onClick={(e)=>handleDelete(e,row.id)}/></IconButton></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
