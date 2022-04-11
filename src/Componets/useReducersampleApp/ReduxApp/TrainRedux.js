@@ -23,7 +23,7 @@ const TrainRedux = () => {
         if(data.error){
             toast("error in get api")
         }
-    },[])
+    },[data.error, dispatch])
     return (
         <>
             <Box>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { Box, Grid, Avatar, IconButton } from '@mui/material'
+import { Box,Avatar, IconButton } from '@mui/material'
 import { Typography } from 'antd'
 import { useNavigate} from 'react-router-dom'
 
@@ -27,7 +27,7 @@ const ApiHeader = () => {
         <>
             <Box className={classes.root}>
                 <Box sx={{ flexGrow: 0.1 }}>
-                    <img className={classes.img} src="https://uxdt.nic.in/wp-content/uploads/2020/06/IRCTC-Preview.png?x38465" />
+                    <img alt="txt" className={classes.img} src="https://uxdt.nic.in/wp-content/uploads/2020/06/IRCTC-Preview.png?x38465" />
                 </Box>
                 <Box sx={{ flexGrow: 5, justifyContent: "center" }}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>

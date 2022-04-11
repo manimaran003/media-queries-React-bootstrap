@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -15,7 +15,7 @@ const HeadRow = [
 const TableComponent: React.FC<{ store: any; delete:(id:string)=>void  }> = (props) => {
     console.log(props.store)
     let navigate=useNavigate()
-    const handleDelete=(e:React.MouseEvent<HTMLButtonElement>,id:string)=>{
+    const handleDelete=(e:React.MouseEvent<SVGSVGElement>,id:string)=>{
         e.preventDefault()
         props.delete(id)
     }

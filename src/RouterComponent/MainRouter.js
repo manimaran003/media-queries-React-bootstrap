@@ -1,4 +1,4 @@
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React,{Suspense} from "react";
 import LogoComponent from '../Componets/CssModuleslocalStorage/imageContainer/LogoComponent'
 import LoginComponent from '../Componets/CssModuleslocalStorage/LoginComponent/LoginComponent'
@@ -15,6 +15,7 @@ import SampleCounter from "../Componets/useReducersampleApp/Mobx/SampleCounter";
 import EventPage from '../Componets/TypeScriptProjects/UsereducerTs/EventPage.tsx'
 import MainTodo from '../Componets/TypeScriptProjects/SampleTutorialTs/MainTodo.tsx'
 import EditEvent from '../Componets/TypeScriptProjects/UsereducerTs/EditEvent.tsx'
+import HomePageTs from "../Componets/TypeScriptProjects/ReduxUiTS/UI/HomePageTs";
 const TrainRedux=React.lazy(()=>import("../Componets/useReducersampleApp/ReduxApp/TrainRedux"))
 const SubRouter = () => {
     return (
@@ -60,6 +61,7 @@ const MainRouter = () => {
                 <Route path="/typeEvent" element={<EventPage/>}/>
                 <Route path="/todoTs" element={<MainTodo/>}/>
                 <Route path="/EditEvent/:id" element={<EditEvent/>}/>
+                <Route path="/BikeRedux" element={<HomePageTs/>}/>
             </Routes>
             </Suspense>
             </>

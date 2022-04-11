@@ -26,7 +26,6 @@ describe("login form input box test cases",()=>{
     test("render email the input",()=>{
         //Assert
         render(<Provider store={store}><LoginPage/></Provider>)
-
         //Arrange
         const inputEl=document.getElementById("exampleFormControlInput1")
         expect(inputEl).toBeInTheDocument()

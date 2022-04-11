@@ -18,14 +18,14 @@ const HomePage = () => {
                         data && (<>
                             <div className="d-flex justify-content-center">
                                 <div className="card d-flex justify-content-center">
-                                <div className="success">
-                                    details of user now logged in this session
-                                </div>
+                                    <div className="success">
+                                        details of user now logged in this session
+                                    </div>
                                     <div>
                                         {data.email}
                                     </div>
                                     <div>
-                                        {data.fname} 
+                                        {data.fname}
                                     </div>
                                 </div>
                             </div>
@@ -39,22 +39,27 @@ const HomePage = () => {
                         </div>
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button onClick={() => navigate("/apireducer")} style={{ width: "180px", height: "200px" }}>
-                               use reducer api call train admin 
+                                use reducer api call train admin
                             </button>
                         </div>
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button onClick={() => navigate("/reduxapi")} style={{ width: "180px", height: "200px" }}>
-                               Redux sample app train booking 
+                                Redux sample app train booking
                             </button>
                         </div>
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button onClick={() => navigate("/typeEvent")} style={{ width: "180px", height: "200px" }}>
-                              typeScript  use reducer sample app in prop passing crud operation
+                                typeScript  use reducer sample app crud operation
+                            </button>
+                        </div>
+                        <div className="card" style={{ width: "180px", height: "200px" }}>
+                            <button onClick={() => navigate("/BikeRedux")} style={{ width: "180px", height: "200px" }}>
+                                typeScript Redux Bike store app
                             </button>
                         </div>
 
                         <div>
-                          
+
                         </div>
                     </div>
                 </div>

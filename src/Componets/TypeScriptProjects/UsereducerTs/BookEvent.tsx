@@ -5,7 +5,7 @@ import { makeStyles } from '@mui/styles';
 import DataModel from './DataModel';
 import { v4 as uuidv4 } from 'uuid';
 
-const InputBox = styled(InputBase)(({ }) => ({
+const InputBox = styled(InputBase)(() => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
         position: 'relative',
@@ -34,7 +34,8 @@ const useStyles = makeStyles({
         border: "2px solid lightGreen"
     },
 })
-const BookEvent: React.FC<{ add: ({ }) => void }> = (props) => {
+// eslint-disable-next-line no-empty-pattern
+const BookEvent: React.FC<{ add: ({}) => void }> = (props) => {
     const classes = useStyles()
     const initialState = {
         id: uuidv4(),

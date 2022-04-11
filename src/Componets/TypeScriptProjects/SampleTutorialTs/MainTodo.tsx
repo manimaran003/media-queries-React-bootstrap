@@ -1,7 +1,7 @@
-import Todos from "./Todos.tsx";
+import Todos from "./Todos";
 import { Box } from '@mui/material'
-import TodoModel from './TodoModel.ts'
-import NewTodo from './NewTodo.tsx'
+import TodoModel from './TodoModel'
+import NewTodo from './NewTodo'
 import { useState } from "react";
 
 const MainTodo = () => {

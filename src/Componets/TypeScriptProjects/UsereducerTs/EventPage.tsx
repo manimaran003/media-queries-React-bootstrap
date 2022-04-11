@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer } from 'react'
 import { Box, Grid } from '@mui/material'
-import BookEvent from './BookEvent.tsx'
+import BookEvent from './BookEvent'
 import { makeStyles } from '@mui/styles'
-import ReducerTs from './ReducerTs.tsx'
-import TableComponent from './TableComponent.tsx'
+import ReducerTs from './ReducerTs'
+import TableComponent from './TableComponent'
 import axios from 'axios'
 const useStyles = makeStyles({
     root: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 })
 const EventPage: React.FC= () => {
     const classes = useStyles();
-    const [StoreEvent, dispatch] = useReducer(ReducerTs, [])
+    const [StoreEvent,dispatch] = useReducer<React.Reducer<any ,any>>(ReducerTs,[])
     console.log(StoreEvent)
     useEffect(() => {
         axios.get('http://localhost:3004/Events')

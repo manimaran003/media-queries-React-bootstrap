@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Box, Grid, Paper, Typography, TextField, Card, Button } from '@mui/material'
+import { Box, Grid,Typography, TextField,  Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import AuthContext from './auth-context'
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     text: {
         textAlign: "center",
         marginBottom: "40px",
-        marginBottom: "20px !important"
+        //marginBottom: "20px !important"
     },
     btn: {
         width: "100%",

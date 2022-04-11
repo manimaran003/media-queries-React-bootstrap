@@ -3,9 +3,8 @@ import { Box, Grid, Typography, InputBase, Button, FormControl } from '@mui/mate
 import { makeStyles } from '@mui/styles'
 import axios from 'axios'
 import { styled } from '@mui/material/styles'
-import { useParams } from 'react-router-dom'
-import {dispatch} from 'react-redux'
-const InputBox = styled(InputBase)(({ }) => ({
+import { useParams ,useNavigate} from 'react-router-dom'
+const InputBox = styled(InputBase)(() => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
         position: 'relative',
@@ -55,7 +54,7 @@ const EditEvent:React.FC= () => {
     const [state, setState] = useState<EditType>({username:fetchData?.username, eventName: fetchData?.eventName,
     members: fetchData?.members,
     time: fetchData?.time})
-    console.log(fetchData)
+    let navigate=useNavigate()
     useEffect(() => {
         (
             async () => {
@@ -72,6 +71,12 @@ const EditEvent:React.FC= () => {
             }
         )();
     }, [])
+
+    useEffect(()=>{
+        if(fetchData){
+            setState(fetchData)
+        }
+    },[fetchData])
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setState({ ...state, [e.target.name]: e.target.value })
     }
@@ -81,12 +86,12 @@ const EditEvent:React.FC= () => {
         axios.put(`http://localhost:3004/Events/${id}`,state)
         .then((res:any)=>{
             console.log(res.data)
-
+            navigate(`/typeEvent`)
         })
         .catch((err:string)=>{
             console.log(err)
         })
-    }
+    } 
     return (
         <>
             <Box>

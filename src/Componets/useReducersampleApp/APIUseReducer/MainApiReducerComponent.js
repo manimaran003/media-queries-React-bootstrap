@@ -1,8 +1,8 @@
 import React, { useEffect, useReducer, useContext, useState } from 'react';
-import { Box, Grid, Toolbar, AppBar, Paper, Card, CardContent, CardActions, Typography, Button, CardMedia } from '@mui/material';
+import { Box, Grid,} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import axios from 'axios';
-import ApiHeader from './ApiHeader'
+//import ApiHeader from './ApiHeader'
 import TrainComponentCard from './TrainComponentCard'
 import SearchPaperComponent from './SearchPaperComponent';
 import TrainReducer from './TrainReducer';
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 const MainApiReducerComponent = () => {
     const classes = useStyles()
     const [StoreTrain, dispatch] = useReducer(TrainReducer, [])
-    const [refreshApi, setRefreshApi] = useState(false)
+   
     console.log('storetrain', StoreTrain)
     useEffect(() => {
         axios.get('http://localhost:3006/Trains')
@@ -90,10 +90,7 @@ const MainApiReducerComponent = () => {
             async () => {
                 await axios.put(`http://localhost:3006/Trains/${id}`, data)
                     .then((res) => {
-                        const temp = {
-                            ...data,
-                            id: id
-                        }
+                       
                         if (res.status === 200) {
                             toast("successfully edited train")
                             refres()

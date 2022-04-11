@@ -15,4 +15,12 @@ $theme:DarkRed;
     height: $value;
     padding-top: 80px;
 }
+.homeBar{
+    padding-top: 60px;
+}
 
+@media(min-width: 500px) {
+    .Drawer{
+        background-color: black !important;
+    }
+}
