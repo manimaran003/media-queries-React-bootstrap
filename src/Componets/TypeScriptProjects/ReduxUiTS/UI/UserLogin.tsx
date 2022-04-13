@@ -1,5 +1,5 @@
-import React from 'react'
-import { Box, Typography, Paper, Grid, InputBase, Button} from '@mui/material'
+import React, { useState } from 'react'
+import { Box, Typography, Paper, Grid, InputBase, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { styled } from '@mui/material/styles'
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
@@ -56,6 +56,17 @@ const useStyles = makeStyles({
 })
 const UserLogin: React.FC = () => {
     const classes = useStyles()
+    const [img, setImg] = useState<string>("")
+    const handleInputFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        if (e.target.files && e.target.files[0]) {
+            let reader: any;
+            reader = new FileReader()
+            reader.onload((e: any): void => {
+                setImg(e.target.files)
+            })
+            reader.readAsDataUrl(e.target.files[0])
+        }
+    }
     return (
         <>
             <Box sx={{ mt: 7 }}>
@@ -72,7 +83,7 @@ const UserLogin: React.FC = () => {
                                     <Box className={classes.imageShow}>
                                         <img alt="img" className={classes.imageShow} src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW90b3JiaWtlfGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
                                         <label htmlFor="icon-button-file">
-                                            <Input accept="image/*" id="icon-button-file" type="file" />
+                                            <Input onChange={(e) => handleInputFileChange(e)} accept="image/*" id="icon-button-file" type="file" />
 
                                             <PhotoCamera className={classes.camera} />
                                         </label>
