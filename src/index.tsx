@@ -6,9 +6,10 @@ import App from './App'
 //import {AppWrapper} from './App'
 import store from './Componets/useReducersampleApp/ReduxFIles/Reducers/Index'
 import {Provider} from 'react-redux'
+import storeTs from './Componets/TypeScriptProjects/ReduxUiTS/ReduxStore/ReducerRepo/Index'
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={storeTs}>
     <App/>
     </Provider>
   </React.StrictMode>,

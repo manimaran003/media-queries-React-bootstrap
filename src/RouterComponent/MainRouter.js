@@ -15,6 +15,7 @@ import EventPage from '../Componets/TypeScriptProjects/UsereducerTs/EventPage.ts
 import MainTodo from '../Componets/TypeScriptProjects/SampleTutorialTs/MainTodo.tsx'
 import EditEvent from '../Componets/TypeScriptProjects/UsereducerTs/EditEvent.tsx'
 import HomePageTs from "../Componets/TypeScriptProjects/ReduxUiTS/UI/HomePageTs";
+import BikeTableTs from "../Componets/TypeScriptProjects/ReduxUiTS/UI/BikeTableTs";
 const TrainRedux = React.lazy(() => import("../Componets/useReducersampleApp/ReduxApp/TrainRedux"))
 const SubRouter = () => {
     return (
@@ -61,6 +62,7 @@ const MainRouter = () => {
                     <Route path="/todoTs" element={<MainTodo />} />
                     <Route path="/EditEvent/:id" element={<EditEvent />} />
                     <Route path="/BikeRedux" element={<HomePageTs />} />
+                    <Route path="/BikeTable" element={<BikeTableTs/>} />
                 </Routes>
             </Suspense>
         </>

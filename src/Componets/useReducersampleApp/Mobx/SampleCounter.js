@@ -12,8 +12,8 @@ const SampleCounter = observer(({store}) => {
     const handleSubmit=(e)=>{
         e.preventDefault()
        const fetched=async()=>{
-           await axios.post("http://localhost:3002/data",state).
-           then((res)=>{
+           await axios.post("http://localhost:3002/data",state)
+           .then((res)=>{
                console.log(res.data.name)
             runInAction(()=>store.result=res.data.name)
            })

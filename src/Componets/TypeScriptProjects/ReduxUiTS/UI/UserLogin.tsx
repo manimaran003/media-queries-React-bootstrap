@@ -3,6 +3,7 @@ import { Box, Typography, Paper, Grid, InputBase, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { styled } from '@mui/material/styles'
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import { useNavigate } from 'react-router-dom';
 const InputBox = styled(InputBase)(() => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
         flexGrow: 2
     },
     btn: {
-        width: "150%",
+        width: "100%",
         background: "lightGreen",
         padding: "10px",
         marginTop: "20px",
@@ -46,25 +47,39 @@ const useStyles = makeStyles({
     },
     camera: {
         position: "relative",
-        top: "-40px",
+        top: "110px",
         bottom: "50px",
-        left: "60px",
-        right: "40px",
+        left: "20px",
+        right: "30px",
         fontSize: "40px",
         color: "#c0e6ee"
+    },
+    AfterPic:{
+        top: "-40px",
+        left: "58px",
+        color: "#c0e6ee",
+        right: "30px",
+        bottom: "50px",
+        position: "relative",
+        fontSize: "40px"
     }
 })
 const UserLogin: React.FC = () => {
     const classes = useStyles()
+    let navigate:any=useNavigate()
     const [img, setImg] = useState<string>("")
+    const handleSubmit=(e:React.MouseEvent<HTMLButtonElement>)=>{
+        navigate('/BikeTable')
+    }
     const handleInputFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         if (e.target.files && e.target.files[0]) {
             let reader: any;
             reader = new FileReader()
-            reader.onload((e: any): void => {
-                setImg(e.target.files)
-            })
-            reader.readAsDataUrl(e.target.files[0])
+            reader.onload = (): void => {
+                console.log("inside onload", reader)
+                setImg(reader.result)
+            }
+            reader.readAsDataURL(e.target.files[0])
         }
     }
     return (
@@ -81,11 +96,11 @@ const UserLogin: React.FC = () => {
                             <Box>
                                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                                     <Box className={classes.imageShow}>
-                                        <img alt="img" className={classes.imageShow} src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bW90b3JiaWtlfGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
+                                        <img alt="img" className={classes.imageShow} src={img} />
                                         <label htmlFor="icon-button-file">
                                             <Input onChange={(e) => handleInputFileChange(e)} accept="image/*" id="icon-button-file" type="file" />
 
-                                            <PhotoCamera className={classes.camera} />
+                                            <PhotoCamera className={img?`${classes.AfterPic}`:`${classes.camera}`} />
                                         </label>
                                     </Box>
                                 </Box>
@@ -111,9 +126,19 @@ const UserLogin: React.FC = () => {
                                         <InputBox fullWidth className={classes.spaceBox} />
                                     </Grid>
                                 </Grid>
-                                <Box className={classes.alignBox}>
+                                <Grid container>
+                                    <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+                                        <Typography>Missing Date</Typography>
+                                        <InputBox fullWidth className={classes.spaceBox} />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+                                        <Typography>Missing Place</Typography>
+                                        <InputBox fullWidth className={classes.spaceBox} />
+                                    </Grid>
+                                </Grid>
+                                <Box>
                                     <Box>
-                                        <Button className={classes.btn}>BookEvent</Button>
+                                        <Button className={classes.btn} onClick={handleSubmit}>Submit</Button>
                                     </Box>
                                 </Box>
                             </Box>
