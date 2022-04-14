@@ -6,5 +6,4 @@ export default interface Model{
     MissingDate:string,
     MobileNo:number,
     MissingPlace:string,
-    BikeImg:string
 }

@@ -1,8 +1,11 @@
 import '../../../../Home.scss'
-import React from 'react'
+import React,{useEffect,useMemo} from 'react'
 import { makeStyles } from '@mui/styles';
 import {Box,Grid,CssBaseline} from '@mui/material'
 import DrawerComponent from './DrawerComponent';
+import {useDispatch,useSelector} from 'react-redux'
+import { getBike } from '../ReduxStore/action';
+import Model from '../ReduxStore/Model'
 const useStyles=makeStyles({
     root:{
         minHeight:"855px",
@@ -11,6 +14,12 @@ const useStyles=makeStyles({
 })
 const BikeTableTs = () => {
     const classes=useStyles()
+    let dispatch:any=useDispatch()
+    let BikeData=useSelector((state:Model[])=>state)
+    useEffect(()=>{
+        dispatch(getBike())
+    },[])
+    console.log(BikeData,"hello")
     return (
         <Box sx={{ }}>
             <CssBaseline />

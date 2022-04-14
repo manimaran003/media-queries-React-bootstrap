@@ -4,6 +4,10 @@ import { makeStyles } from '@mui/styles'
 import { styled } from '@mui/material/styles'
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { useNavigate } from 'react-router-dom';
+import Model from '../ReduxStore/Model'
+import { v4 as uuidv4 } from 'uuid';
+import {AddBike} from '../ReduxStore/action'
+import { useDispatch,useSelector } from 'react-redux';
 const InputBox = styled(InputBase)(() => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
@@ -67,9 +71,31 @@ const useStyles = makeStyles({
 const UserLogin: React.FC = () => {
     const classes = useStyles()
     let navigate:any=useNavigate()
+    let dispatch:any=useDispatch()
     const [img, setImg] = useState<string>("")
+    const initialState={
+        id:uuidv4(),
+        userName:"",
+        BikeName:"",
+        BikeNo:"",
+        MissingDate:"",
+        MobileNo:0,
+        MissingPlace:"",
+    }
+    console.log(img)
+    const [state,setState]=useState<Model>(initialState)
+    const handleChange=(e:React.ChangeEvent<HTMLInputElement>):void=>{
+        setState({...state,[e.target.name]:e.target.value})
+    }
     const handleSubmit=(e:React.MouseEvent<HTMLButtonElement>)=>{
-        navigate('/BikeTable')
+        let states={
+            ...state,
+            Bikeimg:img
+        }
+        console.log(states)
+        console.log("hai",states)
+        dispatch(AddBike(states))
+        //navigate('/BikeTable')
     }
     const handleInputFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         if (e.target.files && e.target.files[0]) {
@@ -98,7 +124,7 @@ const UserLogin: React.FC = () => {
                                     <Box className={classes.imageShow}>
                                         <img alt="img" className={classes.imageShow} src={img} />
                                         <label htmlFor="icon-button-file">
-                                            <Input onChange={(e) => handleInputFileChange(e)} accept="image/*" id="icon-button-file" type="file" />
+                                            <Input   onChange={(e) => handleInputFileChange(e)} accept="image/*" id="icon-button-file" type="file" />
 
                                             <PhotoCamera className={img?`${classes.AfterPic}`:`${classes.camera}`} />
                                         </label>
@@ -109,31 +135,31 @@ const UserLogin: React.FC = () => {
                                 <Grid container>
                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                                         <Typography>Owner Name</Typography>
-                                        <InputBox fullWidth className={classes.spaceBox} />
+                                        <InputBox name="userName" fullWidth className={classes.spaceBox} onChange={handleChange}/>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                                         <Typography>Bike No</Typography>
-                                        <InputBox fullWidth className={classes.spaceBox} />
+                                        <InputBox name="BikeNo" fullWidth className={classes.spaceBox} onChange={handleChange}/>
                                     </Grid>
                                 </Grid>
                                 <Grid container>
                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                                         <Typography>Bike Name</Typography>
-                                        <InputBox fullWidth className={classes.spaceBox} />
+                                        <InputBox name="BikeName" fullWidth className={classes.spaceBox} onChange={handleChange}/>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                                         <Typography>Mobile No</Typography>
-                                        <InputBox fullWidth className={classes.spaceBox} />
+                                        <InputBox name="MobileNo" fullWidth className={classes.spaceBox} onChange={handleChange}/>
                                     </Grid>
                                 </Grid>
                                 <Grid container>
                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                                         <Typography>Missing Date</Typography>
-                                        <InputBox fullWidth className={classes.spaceBox} />
+                                        <InputBox name="MissingDate" fullWidth className={classes.spaceBox} onChange={handleChange} />
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                                         <Typography>Missing Place</Typography>
-                                        <InputBox fullWidth className={classes.spaceBox} />
+                                        <InputBox name="MissingPlace" fullWidth className={classes.spaceBox} onChange={handleChange}/>
                                     </Grid>
                                 </Grid>
                                 <Box>

@@ -62,7 +62,7 @@ const MainRouter = () => {
                     <Route path="/todoTs" element={<MainTodo />} />
                     <Route path="/EditEvent/:id" element={<EditEvent />} />
                     <Route path="/BikeRedux" element={<HomePageTs />} />
-                    <Route path="/BikeTable" element={<BikeTableTs/>} />
+                    <Route path="/BikeTable" element={<BikeTableTs/>}/>
                 </Routes>
             </Suspense>
         </>
