@@ -31,36 +31,46 @@ const HomePage = () => {
                             </div>
                         </>)
                     }
-                    <div className="d-flex justify-content-around pt-5">
-                        <div className="card" style={{ width: "180px", height: "200px" }}>
-                            <button onClick={() => navigate("/reducerapp")} style={{ width: "180px", height: "200px" }}>
-                                useEffect and useReducer sample app
-                            </button>
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                            <div className="card" style={{ width: "180px", height: "200px" }}>
+                                <button onClick={() => navigate("/reducerapp")} style={{ width: "180px", height: "200px" }}>
+                                    useEffect and useReducer sample app
+                                </button>
+                            </div>
                         </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button onClick={() => navigate("/apireducer")} style={{ width: "180px", height: "200px" }}>
                                 use reducer api call train admin
                             </button>
                         </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button onClick={() => navigate("/reduxapi")} style={{ width: "180px", height: "200px" }}>
                                 Redux sample app train booking
                             </button>
                         </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button onClick={() => navigate("/typeEvent")} style={{ width: "180px", height: "200px" }}>
                                 typeScript  use reducer sample app crud operation
                             </button>
                         </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
                         <div className="card" style={{ width: "180px", height: "200px" }}>
                             <button onClick={() => navigate("/BikeRedux")} style={{ width: "180px", height: "200px" }}>
                                 typeScript Redux Bike store app
                             </button>
                         </div>
+                    </div>
 
-                        <div>
+                    <div>
 
-                        </div>
                     </div>
                 </div>
             </div>
