@@ -9,6 +9,7 @@ const SampleCounter = observer(({store}) => {
         name:"",
         password:""
     })
+    console.log("srore",store)
     const handleSubmit=(e)=>{
         e.preventDefault()
        const fetched=async()=>{
@@ -16,6 +17,7 @@ const SampleCounter = observer(({store}) => {
            .then((res)=>{
                console.log(res.data.name)
             runInAction(()=>store.result=res.data.name)
+            console.log(store,"hai")
            })
            .catch((err)=>console.log(err))
        }

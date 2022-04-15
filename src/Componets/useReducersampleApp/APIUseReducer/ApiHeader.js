@@ -49,9 +49,9 @@ const ApiHeader = () => {
                 </Box>
                 <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "none", md: "flex", lg: "flex", xl: "flex" } }}>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <Box>
+                        {/* <Box>
                             <Typography className={classes.text} onClick={() => navigate("/Homepage")}>HomePage</Typography>
-                        </Box>
+                        </Box> */}
                         <IconButton >
                             <Avatar
                                 id="basic-avatar"
