@@ -4,12 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App'
 //import {AppWrapper} from './App'
-//import store from './Componets/useReducersampleApp/ReduxFIles/Reducers/Index'
+import store from './Componets/useReducersampleApp/ReduxFIles/Reducers/Index'
 import {Provider} from 'react-redux'
-import storeTs from './Componets/TypeScriptProjects/ReduxUiTS/ReduxStore/ReducerRepo/Index'
+//import storeTs from './Componets/TypeScriptProjects/ReduxUiTS/ReduxStore/ReducerRepo/Index'
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={storeTs}>
+    <Provider store={store}>
     <App/>
     </Provider>
   </React.StrictMode>,

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addUser } from "../../ReduxFIles/Actions/ActionTrain";
 import { useParams } from "react-router-dom";
+import ConvertTsModel from "../../ReduxFIles/ConvertTsModel";
 const InputBox = styled(InputBase)(({ theme }) => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
@@ -24,7 +25,7 @@ const InputBox = styled(InputBase)(({ theme }) => ({
 const useStyles = makeStyles({
     root: {
         marginTop: "50px",
-        background: "rgb(2,0,36)",
+        //background: "rgb(2,0,36)",
         background: "linear-gradient(139deg, rgba(2,0,36,1) 0%, rgba(191,232,227,1) 0%, rgba(255,255,255,1) 99%, rgba(0,251,156,1) 100%);",
         height: "860px"
     },
@@ -40,35 +41,51 @@ const useStyles = makeStyles({
         alignItems: "center"
     },
 })
-const BookTrain = () => {
-    const [value, setValue] = useState({})
+const BookTrain:React.FC= () => {
+    const [value, setValue] = useState<ConvertTsModel>(
+        {
+            id:"",
+            from:"",
+            time:"",
+            arrival:"",
+            passengerName:"",
+            trainName:"",
+            passengerAge:"",
+            to:"",
+            trainNumber:""
+        }
+    )
     const [btn, setBtn] = useState(false)
     const [open, setOpen] = useState(false)
     // const[bind,setBind]=useState({})
     // const[types,settype]=useState("add")
-    let dispatch = useDispatch()
-    const data = useSelector(state => state.PostReducer.trips)
+    let dispatch:any = useDispatch()
+    const data:any = useSelector((state:any) => state.PostReducer.trips)
     // /console.log("dat",data && data)
     let { id } = useParams()
     useEffect(() => {
-        let value = data ? data.find((item) => item.id === id) : ""
+        let value = data ? data.find((item:any) => item.id === id) : ""
         setValue(value)
     }, [id])
+    type IUser={
+        passengerAge:string,
+        passengerName:string
+    }
     console.log("value", value)
     const classes = useStyles()
     let initialValues = {
         passengerName: "",
         passengerAge: ""
     }
-    const [state, setState] = useState(initialValues)
-    const handleChange = (e) => {
+    const [state, setState] = useState<IUser>(initialValues)
+    const handleChange = (e:any) => {
         const { name, value } = e.target
         setState({ ...state, [name]: value })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = (e:any) => {
         e.preventDefault()
         // if(type==="add"){
-        let temp = {
+        let temp:any = {
             id: uuidv4(),
             from: value.from,
             to: value.to,
@@ -76,7 +93,8 @@ const BookTrain = () => {
             arrival: value.arrival,
             passengerName: state.passengerName,
             passengerAge: state.passengerAge,
-            trainName: value.trainName
+            trainName: value.trainName,
+            trainNumber:value.trainNumber
         }
         dispatch(addUser(temp))
         setOpen(true)

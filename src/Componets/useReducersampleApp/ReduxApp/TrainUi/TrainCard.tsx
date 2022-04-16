@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, CardActions, CardContent, CardMedia, Typography, Button, Grid } from '@mui/material'
-const TrainCard = (props) => {
+const TrainCard:React.FC<{items:any}>=(props) => {
     const {from,to,trainNumber,arrival,time,id}=props.items
     let navigate=useNavigate()
-    const handleBook=(e,id)=>{
+    const handleBook=(e:any,id:string):void=>{
         e.preventDefault()
         navigate(`/bookTrain/${id}`)
     }
@@ -33,7 +33,7 @@ const TrainCard = (props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={(e)=>handleBook(e,id)}>BookTrain</Button>
+                    <Button size="small" onClick={(e:any)=>handleBook(e,id)}>BookTrain</Button>
                 </CardActions>
             </Card>
         </>

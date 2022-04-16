@@ -6,20 +6,42 @@ import { getUser } from '../../ReduxFIles/Actions/ActionTrain';
 import ModalEdit from './ModalEdit';
 import {deleteUser} from "../../ReduxFIles/Actions/ActionTrain"
 import {useNavigate} from 'react-router-dom'
+import ConvertTsModel from '../../ReduxFIles/ConvertTsModel';
 export default function ProcessedCard() {
-  const [train, setTrain] = useState({})
-  let data = useSelector(state => state.PostReducer.userTrain)
-  const [open, setOpen] = useState(false)
-  let dispatch = useDispatch()
-  let navigate=useNavigate()
+  type ConvertModel={
+    id:string,
+    from:string,
+    time:string,
+    arrival:string,
+    passengerName:string,
+    trainName:string,
+    passengerAge:string,
+    to:string,
+  }
+  let initUser={
+    id:"",
+    from:"",
+    time:"",
+    arrival:"",
+    passengerName:"",
+    trainName:"",
+    passengerAge:"",
+    to:""
+  }
+  const [train, setTrain] = useState<ConvertModel>(initUser)
+  let data:any = useSelector((state:any)=> state.PostReducer.userTrain)
+  console.log("trainsNew",data)
+  const [open, setOpen] = useState<Boolean>(false)
+  let dispatch:any = useDispatch()
+  let navigate:any=useNavigate()
   useEffect(() => {
     dispatch(getUser())
   }, [])
+  console.log("newtrain",train)
   useEffect(() => {
-    console.log("trainsNew",data)
     setTrain(data ? data[0] : {})
   }, [data])
-  const handleEdit = (e) => {
+  const handleEdit = (e:any) => {
     e.preventDefault()
     setOpen(true)
     //props.pass(train,"edit")
@@ -27,7 +49,7 @@ export default function ProcessedCard() {
   const handleClose = () => {
     setOpen(false)
   }
-  const handleDelete=(e)=>{
+  const handleDelete=(e:any)=>{
     e.preventDefault()
     dispatch(deleteUser(train.id))
     navigate("/reduxapi")

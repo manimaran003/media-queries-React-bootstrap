@@ -6,16 +6,18 @@ import TrainCard from './TrainUi/TrainCard'
 import {getTrain} from '../ReduxFIles/Actions/ActionTrain'
 import { useSelector,useDispatch } from 'react-redux';
 import { toast,ToastContainer } from 'react-toastify';
+import ConvertTsModel from '../ReduxFIles/ConvertTsModel';
+import ConvertTsGet from '../ReduxFIles/ConvertTsGet';
 const useStyles = makeStyles({
     hero_section: {
         minHeight: "848px",
         background: "#fff"
     },
 })
-const TrainRedux = () => {
-    const classes = useStyles();
-    let dispatch=useDispatch()
-    let data=useSelector(state=>state.PostReducer)
+const TrainRedux:React.FC= () => {
+    const classes:any = useStyles();
+    let dispatch:any=useDispatch()
+    let data:any=useSelector((state:any)=>state.PostReducer)
     console.log("error",data.error)
     console.log("tri",data.trips)
     useEffect(()=>{
@@ -45,7 +47,7 @@ const TrainRedux = () => {
                                     <Grid item xs={12}>
                                         <Grid container spacing={2}>
                                            {
-                                               data.trips && data?.trips.map((item)=>{
+                                               data.trips && data?.trips.map((item:any)=>{
                                                    return (
                                                     <Grid item xs={12} sm={6} md={6} lg={6} xl={3} key={item.id}><TrainCard items={item}/></Grid>
                                                    )

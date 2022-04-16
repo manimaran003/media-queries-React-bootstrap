@@ -15,17 +15,21 @@ const style = {
     p: 2,
 };
 
-const ModalEdit = (props) => {
+const ModalEdit:React.FC<{item:any;open:any;close:()=>void}>=(props) => {
     console.log('modal',props.item)
     const {id,trainName,from,to,arrival,time,passengerName,passengerAge}=props.item
-    let dispatch=useDispatch()
-    let success=useSelector(state=>state.NextReducer.success)
+    let dispatch:any=useDispatch()
+    let success=useSelector((state:any)=>state.NextReducer.success)
+    type IUser={
+        passengerAge:string,
+        passengerName:string
+    }
     let initialValues = {
         passengerName:passengerName,
         passengerAge:passengerAge
     }
     const [state, setState] = useState(initialValues)
-    const handleChange = (e) => {
+    const handleChange = (e:any) => {
         const { name, value } = e.target
         setState({ ...state, [name]: value })
     }
@@ -34,7 +38,7 @@ const ModalEdit = (props) => {
             setState(props.item)
         }
     },[props.item])
-    const handleSubmit=(e)=>{
+    const handleSubmit=(e:any)=>{
         e.preventDefault()
         let temp = {
             from: from,
