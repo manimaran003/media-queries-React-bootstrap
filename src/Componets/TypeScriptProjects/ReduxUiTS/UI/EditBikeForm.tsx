@@ -140,13 +140,13 @@ const EditBikeForm: React.FC = () => {
             BikeName:state.BikeName,
             MobileNo:state.MobileNo,
             BikeNo:state.BikeNo,
-            MissingData:state.MissingDate,
+            MissingDate:state.MissingDate,
             MissingPlace:state.MissingPlace,
             Bikeimg:img,
         }
         console.log(newState)
-        //dispatch(EditBike([states,id]))
-        //navigate('/BikeTable')
+        dispatch(EditBike([newState,id]))
+        navigate('/BikeTable')
     }
     const handleInputFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         if (e.target.files && e.target.files[0]) {
