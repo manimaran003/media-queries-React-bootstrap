@@ -60,7 +60,7 @@ const ApiHeader = () => {
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}
                                 alt="Remy Sharp"
-                                src=""
+                                src={"https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
                             />
                         </IconButton>
                         <Menu
@@ -73,8 +73,6 @@ const ApiHeader = () => {
                             }}
                         >
                             <MenuItem onClick={handleChange}>HomePage</MenuItem>
-                            <MenuItem onClick={handleClose}>My account</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
                         </Menu>
                     </Box>
 
@@ -97,8 +95,6 @@ const ApiHeader = () => {
                         }}
                     >
                         <MenuItem onClick={handleChange}>HomePage</MenuItem>
-                        <MenuItem onClick={handleClose}>My account</MenuItem>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
                     </Menu>
                 </Box>
             </Box>

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
-import { useNavigate } from "react-router-dom";
 const initialValues = {
     username: "",
     password: ""
@@ -10,7 +8,6 @@ const LoginPage = () => {
     const [errors, setErrors] = useState({})
     const [data,storageData]=useState()
     const [showModal,setModal]=useState(false)
-    // let navigate=useNavigate()
     useEffect(()=>{
         getLocalStorage()
     },[])
@@ -21,21 +18,21 @@ const LoginPage = () => {
         })
     }
     const handleValidation = () => {
-        let errors = {}
+        let Errors = {}
         const { username, password } = state
         if (username === "") {
-            errors.username = "please input your username!"
+            Errors.username = "please input your username!"
         }
 
         if (password === "") {
-            errors.password = "please input your password!"
+            Errors.password = "please input your password!"
         }
 
-        return errors
+        return Errors
     }
     const getLocalStorage = () => {
-        let data = localStorage.getItem('NEWDATA')
-       storageData(JSON.parse(data))
+        let datas = localStorage.getItem('NEWDATA')
+       storageData(JSON.parse(datas))
     }
     const handleSubmit = (e) => {
         e.preventDefault()

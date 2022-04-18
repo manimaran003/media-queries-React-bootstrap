@@ -1,8 +1,6 @@
 import React from "react";
 import LoginPage from "./LoginPage";
-import Signup from "../SignUpComponent/Signup";
-import { Routes, Route, Link } from 'react-router-dom'
-const Login = () => {
+const LoginComponent = () => {
     return (
         <>
             <div className="container-fluid">
@@ -24,4 +22,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LoginComponent

@@ -41,7 +41,7 @@
 #exampleFormControlInput1,#exampleFormControlInput2,#basic-addon1{
   border-right-width: 1px!important;
     background: #242e8f!important;
-    border: none;
+  /* border: none;*/
 }
 .form-label{
   color:#cecece;
@@ -94,9 +94,6 @@
   }
 }
 
-@media (min-width: 1400px) { 
-
- }
 
  .login-btn{
   width: 80%;
