@@ -6,8 +6,6 @@ import TrainCard from './TrainUi/TrainCard'
 import {getTrain} from '../ReduxFIles/Actions/ActionTrain'
 import { useSelector,useDispatch } from 'react-redux';
 import { toast,ToastContainer } from 'react-toastify';
-import ConvertTsModel from '../ReduxFIles/ConvertTsModel';
-import ConvertTsGet from '../ReduxFIles/ConvertTsGet';
 const useStyles = makeStyles({
     hero_section: {
         minHeight: "848px",

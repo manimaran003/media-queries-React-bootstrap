@@ -27,6 +27,17 @@ const MainApiReducerComponent = () => {
    
     console.log('storetrain', StoreTrain)
     useEffect(() => {
+    //    let instance= axios({ 
+    //         url:'http://localhost:3006/Trains' ,
+    //         method:'get',
+    //     })
+    //     instance.interceptors.request.use(function (config) {
+    //        console.log(config)
+    //        return config
+    //       }, function (error) {
+    //         return Promise.reject(error);
+    //       });
+
         axios.get('http://localhost:3006/Trains')
             .then((res) => {
                 console.log(res.data)

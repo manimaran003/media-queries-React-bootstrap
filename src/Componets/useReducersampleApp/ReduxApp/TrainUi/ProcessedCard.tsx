@@ -36,7 +36,7 @@ export default function ProcessedCard() {
   let navigate:any=useNavigate()
   useEffect(() => {
     dispatch(getUser())
-  }, [])
+  }, [dispatch])
   console.log("newtrain",train)
   useEffect(() => {
     setTrain(data ? data[0] : {})

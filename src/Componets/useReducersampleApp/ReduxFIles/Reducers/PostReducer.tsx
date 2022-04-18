@@ -1,11 +1,8 @@
 import { ActionTypes } from "../Constants/ActionTypes"
-// const initialState={
-// }
 import ConvertTsGet from '../ConvertTsGet'
 import ConvertTsModel from '../ConvertTsModel'
 import Model from '../../../TypeScriptProjects/ReduxUiTS/ReduxStore/Model'
 export const initialState:ConvertTsGet[] | ConvertTsModel[] | Model[]=[]
-//export const initialState:Model[]=[]
 type ACTIONTYPE= | {type:ActionTypes.GETtrain;data:ConvertTsGet[]}
 | { type: ActionTypes.userTrain; data: ConvertTsModel[] }
 | { type: ActionTypes.AddSuccess; data: string }
@@ -33,6 +30,7 @@ export const PostReducer=(state=initialState,action:ACTIONTYPE)=>{
             return state
     }
 }
+
 
 export const ReducerComponent=(state=initialState,action:ACTIONTYPE)=>{
     switch (action.type){
