@@ -20,7 +20,7 @@ const BikeTableTs = () => {
     useEffect(() => {
         dispatch(getBike())
     }, [dispatch])
-    return (
+return (
         <Box sx={{}}>
             <CssBaseline />
             <Grid container>

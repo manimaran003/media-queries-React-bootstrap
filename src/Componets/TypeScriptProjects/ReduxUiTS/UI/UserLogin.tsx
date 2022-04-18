@@ -95,7 +95,7 @@ const UserLogin: React.FC = () => {
         console.log(states)
         console.log("hai",states)
         dispatch(AddBike(states))
-        //navigate('/BikeTable')
+        navigate('/BikeTable')
     }
     const handleInputFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         if (e.target.files && e.target.files[0]) {

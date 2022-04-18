@@ -17,5 +17,9 @@ export const enum ActionTypes{
     AddSuccess="ADDSuccess",
     userTrain="userTrain",
     EditUser="EditUser",
-    getError="getError"
+    getError="getError",
+    GETAPI="GETAPI",
+    POSTAPI="POSTAPI",
+    PUTAPI="PUTAPI",
+    DELETE="DELETEAPI"
 }
