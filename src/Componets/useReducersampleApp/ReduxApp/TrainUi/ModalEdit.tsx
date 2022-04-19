@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Typography, TextField, Modal } from '@mui/material'
 import { editUser } from "../../ReduxFIles/Actions/ActionTrain";
 import { useSelector,useDispatch } from "react-redux";
@@ -19,7 +19,7 @@ const ModalEdit:React.FC<{item:any;open:any;close:()=>void}>=(props) => {
     console.log('modal',props.item)
     const {id,trainName,from,to,arrival,time,passengerName,passengerAge}=props.item
     let dispatch:any=useDispatch()
-    let success=useSelector((state:any)=>state.NextReducer.success)
+    let success=useSelector((states:any)=>states.NextReducer.success)
     type IUser={
         passengerAge:string,
         passengerName:string
@@ -50,7 +50,6 @@ const ModalEdit:React.FC<{item:any;open:any;close:()=>void}>=(props) => {
             trainName:trainName
         }
         dispatch(editUser(id,temp))
-        console.log("success",success && success)
         toast(success)
     }
 

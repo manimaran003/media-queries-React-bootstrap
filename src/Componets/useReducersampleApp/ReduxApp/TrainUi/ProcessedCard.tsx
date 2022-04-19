@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
-import { addUser } from '../../ReduxFIles/Actions/ActionTrain'
 import { useDispatch, useSelector } from 'react-redux';
-import { getUser } from '../../ReduxFIles/Actions/ActionTrain';
+import { getUser,deleteUser } from '../../ReduxFIles/Actions/ActionTrain';
 import ModalEdit from './ModalEdit';
-import {deleteUser} from "../../ReduxFIles/Actions/ActionTrain"
 import {useNavigate} from 'react-router-dom'
-import ConvertTsModel from '../../ReduxFIles/ConvertTsModel';
 export default function ProcessedCard() {
   type ConvertModel={
     id:string,
@@ -31,7 +28,7 @@ export default function ProcessedCard() {
   const [train, setTrain] = useState<ConvertModel>(initUser)
   let data:any = useSelector((state:any)=> state.PostReducer.userTrain)
   console.log("trainsNew",data)
-  const [open, setOpen] = useState<Boolean>(false)
+  const [open, setOpen] = useState<boolean>(false)
   let dispatch:any = useDispatch()
   let navigate:any=useNavigate()
   useEffect(() => {
@@ -44,7 +41,6 @@ export default function ProcessedCard() {
   const handleEdit = (e:any) => {
     e.preventDefault()
     setOpen(true)
-    //props.pass(train,"edit")
   }
   const handleClose = () => {
     setOpen(false)

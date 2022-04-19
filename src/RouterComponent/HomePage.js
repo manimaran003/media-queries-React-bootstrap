@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import '../Home.scss'
 const HomePage = () => {
     const [data, setRender] = useState({})
     let navigate = useNavigate()
-    // i achieved component did mount in use effect
     useEffect(() => {
-        let data = localStorage.getItem('NEWFILTER')
-        let newData = JSON.parse(data)
+        let datas = localStorage.getItem('NEWFILTER')
+        let newData = JSON.parse(datas)
         setRender(newData)
     }, [])
     return (

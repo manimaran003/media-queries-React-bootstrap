@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoModel from './TodoModel'
+import TodoModel from './TodoModal'
 import ListTodo from './ListTodo'
 const Todos:React.FC<{items:TodoModel[]; del:(id:string)=>void}>=(props)=>{
     const passDelete=(id:string):void=>{

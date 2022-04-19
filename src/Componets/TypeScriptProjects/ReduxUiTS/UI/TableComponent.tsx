@@ -10,7 +10,7 @@ const TableComponent: React.FC<{ BikeData: any }> = (props) => {
     const { BikeData } = props
     let navigate:any=useNavigate()
     let dispatch:any=useDispatch()
-    const handleDelete=(e:any,id:string):void=>{
+    const handleDelete=(_e:any,id:string):void=>{
         console.log("delte",id)
         dispatch(DeleteBike(id))
     }
@@ -35,7 +35,7 @@ const TableComponent: React.FC<{ BikeData: any }> = (props) => {
                             </TableHead>
                             <TableBody>
                                 {
-                                    (BikeData && BikeData).map((row: any) => {
+                                    (BikeData.lenght!==0?BikeData:undefined).map((row: any) => {
                                         return (
                                             <TableRow key={row.id}>
                                                 <TableCell>{row.userName}</TableCell>

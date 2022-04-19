@@ -1,6 +1,6 @@
 import React, { useState, useContext} from "react";
 import ReactDOM from 'react-dom'
-import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow ,Tooltip} from '@mui/material'
+import { Table, TableBody, TableCell, TableContainer, TableHead, Paper, TableRow} from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import ModalComponent from "../UI/ModalComponent";

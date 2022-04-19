@@ -35,7 +35,7 @@ const useStyles = makeStyles({
     },
 })
 // eslint-disable-next-line no-empty-pattern
-const BookEvent: React.FC<{ add: ({}) => void }> = (props) => {
+const BookEvent: React.FC<{ add: (state:any) => void }> = (props) => {
     const classes = useStyles()
     const initialState = {
         id: uuidv4(),

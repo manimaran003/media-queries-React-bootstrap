@@ -13,7 +13,7 @@ type ACTIONTYPE= | {type:ActionTypes.GETtrain;data:ConvertTsGet[]}
 | { type: ActionTypes.POSTAPI; payload: Model[] }
 | { type: ActionTypes.PUTAPI;payload: Model[] }
 
-export const PostReducer=(state=initialState,action:ACTIONTYPE)=>{
+export const PostReducer=(state=initialState,action:ACTIONTYPE )=>{
     switch(action.type){
         case ActionTypes.GETtrain:
             return {trips:action.data}
@@ -39,7 +39,7 @@ export const ReducerComponent=(state=initialState,action:ACTIONTYPE)=>{
         case ActionTypes.POSTAPI:
             return [...state ,action.payload]
             default:
-                return state
+                return state 
     }
   
   }

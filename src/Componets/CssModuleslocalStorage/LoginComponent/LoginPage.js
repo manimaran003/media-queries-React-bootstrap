@@ -41,7 +41,7 @@ const LoginPage = () => {
             if(!data){
                 setModal(true)
             }
-            const saveData=data.find((val)=>val.email===state.username && val.password===state.password)
+            const saveData=data?.find((val)=>val.email===state.username && val.password===state.password)
             const { email, password } = saveData?saveData:""
 
             if (email === state.username && password===state.password) {

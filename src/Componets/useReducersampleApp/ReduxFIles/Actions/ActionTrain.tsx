@@ -1,11 +1,6 @@
 import { ActionTypes } from "../Constants/ActionTypes"
 import axios from "axios"
 
-// export const loadCategories = categories => ({
-//     type: ActionTypes.GETtrain,
-//     categories
-//   });
-//admin train api call
 export const getTrain=()=>{
     return async (dispatch:any)=>{
         let apiUrl:string="http://localhost:3006/Trains"
@@ -15,7 +10,7 @@ export const getTrain=()=>{
              dispatch({type:ActionTypes.GETtrain,data:res.data})
             
         })
-        .catch((err:any)=>{
+        .catch((_err:any)=>{
             console.log("api error")
             dispatch({type:ActionTypes.getError,data:"error"})
         })
@@ -26,8 +21,8 @@ export const addUser=(data:any)=>{
     let apiUrl:string="http://localhost:3005/users"
     return async(dispatch:any)=>{
         axios.post(apiUrl,data)
-        .then((res)=>dispatch({type:ActionTypes.AddSuccess,payload:"successfully added"}))
-        .catch((err)=>console.log("error"))
+        .then((_res)=>dispatch({type:ActionTypes.AddSuccess,payload:"successfully added"}))
+        .catch((_err)=>console.log("error"))
     }
 }
 
@@ -35,12 +30,11 @@ export const deleteUser=(id:string)=>{
     let apiUrl:string=`http://localhost:3005/users/${id}`
     return async(dispatch:any)=>{
         axios.delete(apiUrl)
-        .then((res:any)=>dispatch({type:ActionTypes.DELSuccess,payload:"successfully Deleted"}))
-        .catch((err:any)=>console.log("error"))
+        .then((_res:any)=>dispatch({type:ActionTypes.DELSuccess,payload:"successfully Deleted"}))
+        .catch((_err:any)=>console.log("error"))
     }
 }
 
-//train user get api call
 export const getUser=()=>{
     let apiUrl:string=`http://localhost:3005/users`
     return async(dispatch:any)=>{
@@ -58,9 +52,8 @@ export const editUser=(id:string,data:any)=>{
     let apiUrl=`http://localhost:3005/users/${id}`
     return async(dispatch:any)=>{
         await axios.put(apiUrl,data)
-        .then((res:any)=>{
+        .then((_res:any)=>{
             console.log("firstcall after",data)
-            //refreshing api call
             dispatch(getUser())
             dispatch({type:ActionTypes.EditUser,payload:"successfully edited data"})
         })

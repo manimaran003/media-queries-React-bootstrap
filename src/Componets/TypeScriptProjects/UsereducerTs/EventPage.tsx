@@ -68,7 +68,7 @@ const EventPage: React.FC= () => {
         (
             async () => {
                 await axios.delete(`http://localhost:3004/Events/${id}`)
-                    .then((res: any) => {
+                    .then((_res: any) => {
                         //dispatch({ type: "DELETEAPI",payload: res.data })
                         refres()
                     })

@@ -31,7 +31,7 @@ export const EditBike=(data:any)=>{
     console.log("da",data)
     return async(dispatch:any)=>{
         await axios.put(`http://localhost:3009/BIKE/${data[1]}`,data[0])
-        .then((res:any)=>{
+        .then((_res:any)=>{
             dispatch({type:ActionTypes.PUTAPI,payload:"successfully edited"})
         })
         .catch((err:any)=>{
@@ -44,7 +44,7 @@ export const DeleteBike=(id:string)=>{
     console.log("da",id)
     return async(dispatch:any)=>{
         await axios.delete(`http://localhost:3009/BIKE/${id}`)
-        .then((res:any)=>{
+        .then((_res:any)=>{
             dispatch({type:ActionTypes.DELETE,payload:"successfully deleted"})
             dispatch(getBike())
         })

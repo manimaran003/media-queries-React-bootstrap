@@ -42,12 +42,6 @@ interface EditType {
 const EditEvent:React.FC= () => {
     const classes = useStyles()
     let { id } = useParams()
-    // let initialState = {
-    //     username: "",
-    //     eventName: "",
-    //     members: "",
-    //     time: ""
-    // }
     const [fetchData,setFetch]=useState<EditType>({username:"",eventName: "",
     members: "",
     time: ""})

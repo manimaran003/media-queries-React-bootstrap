@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { NextReducer } from "./NextReducer";
-import { PostReducer } from "./PostReducer";
-import { ReducerComponent } from "./PostReducer";
+import { PostReducer,ReducerComponent } from "./PostReducer";
+
 
 export const RootReducer=combineReducers({
     PostReducer,

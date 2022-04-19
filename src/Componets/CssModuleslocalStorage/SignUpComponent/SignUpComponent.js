@@ -1,6 +1,5 @@
 import React from "react";
 import Signup from './Signup'
-import { Routes, Route, Link } from 'react-router-dom'
 const SignUpComponent = () => {
     return (
         <>

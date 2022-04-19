@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Model from '../ReduxStore/Model'
 import { v4 as uuidv4 } from 'uuid';
 import {AddBike} from '../ReduxStore/action'
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 const InputBox = styled(InputBase)(() => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
@@ -87,7 +87,7 @@ const UserLogin: React.FC = () => {
     const handleChange=(e:React.ChangeEvent<HTMLInputElement>):void=>{
         setState({...state,[e.target.name]:e.target.value})
     }
-    const handleSubmit=(e:React.MouseEvent<HTMLButtonElement>)=>{
+    const handleSubmit=(_e:React.MouseEvent<HTMLButtonElement>)=>{
         let states={
             ...state,
             Bikeimg:img

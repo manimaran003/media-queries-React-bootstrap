@@ -1,11 +1,10 @@
-import React, { useEffect, useReducer, useState } from "react";
-import { AppBar, Box, Toolbar, Grid, Card, Paper, Typography, } from '@mui/material'
-import Header from "../UI/Header";
+import React, { useReducer } from "react";
+import {  Box,Grid, Typography, } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 import CardComponent from "../UI/CardComponent";
 import { data } from './data'
 import TableComponent from "./TableComponent";
-import ProductReducers from "./ProductReducer";
+import ProductReducers from "./ProductReducers";
 import {Link} from 'react-router-dom'
 import AuthContext from "./auth-context";
 const useStyles = makeStyles({

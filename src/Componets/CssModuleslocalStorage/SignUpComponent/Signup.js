@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Box, TextField, Grid, InputLabel, Button, InputBase, InputAdornment } from '@mui/material'
+import React,{useState} from "react";
+import { Box, Grid, InputLabel, Button, InputBase} from '@mui/material'
 import { makeStyles, styled } from '@mui/styles';
 import { Typography } from "antd";
-import { Link, Navigate } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import ErrorComponent from "./ErrorComponent";
-import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 const DesignTextField = styled(InputBase)({
     '& .MuiInputBase-input': {
@@ -58,14 +57,12 @@ const initialState = {
     password: ""
     
 }
-let arr=[];
 const Signup = () => {
     let navigate=useNavigate()
     const classes = useStyles()
     const [state, setState] = useState(initialState)
-    const [errors, setErrors] = useState({})
+    const [Errors, setErrors] = useState({})
     const[showReg,setReg]=useState(false)
-    const [newArray,setArray]=useState([])
     const handleChange = (e) => {
         const { name, value } = e.target
         setState({
@@ -75,17 +72,16 @@ const Signup = () => {
     }
     const handleValidation = () => {
         let error = {}
-        const { fname, lname, email, password } = state
-        if (fname === "") {
+        if (state.fname === "") {
             error.name = "please input your first name"
         }
-        if (lname === "") {
+        if (state.lname === "") {
             error.lname = "please input your last name"
         }
-        if (email === "") {
+        if (state.email === "") {
             error.email = "please input your email"
         }
-        if (password === "") {
+        if (state.password === "") {
             error.password= "please input your password"
         }
         return error
@@ -134,7 +130,7 @@ const Signup = () => {
                             <DesignTextField
                                 name="fname" value={fname} onChange={handleChange}
                                 fullWidth />
-                                <ErrorComponent errorText={errors.name}/>
+                                <ErrorComponent errorText={Errors.name}/>
                         </Grid>
                         <Grid xs={2} lg={1}>
                         </Grid>
@@ -143,7 +139,7 @@ const Signup = () => {
                                 lastname
                             </DesignInputLabel>
                             <DesignTextField name="lname" value={lname} onChange={handleChange} fullWidth />
-                            <ErrorComponent errorText={errors.lname}/>
+                            <ErrorComponent errorText={Errors.lname}/>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -153,14 +149,14 @@ const Signup = () => {
                             Email
                         </DesignInputLabel>
                         <DesignTextField name="email" value={email} onChange={handleChange} fullWidth />
-                        <ErrorComponent errorText={errors.email}/>
+                        <ErrorComponent errorText={Errors.email}/>
                     </Grid>
                     <Grid item xs={6}>
                         <DesignInputLabel className={classes.root} shrink htmlFor="bootstrap-input">
                             Password
                         </DesignInputLabel>
                         <DesignTextField name="password" value={password} onChange={handleChange} fullWidth />
-                        <ErrorComponent errorText={errors.password}/>
+                        <ErrorComponent errorText={Errors.password}/>
                     </Grid>
                 </Grid>
                 <Button className={classes.btn} onClick={handleSubmit}>Sign Up</Button>

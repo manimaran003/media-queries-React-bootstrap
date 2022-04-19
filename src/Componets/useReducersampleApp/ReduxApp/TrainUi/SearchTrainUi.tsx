@@ -1,11 +1,10 @@
 import React from 'react'
-import { Grid, Box, FormControl, InputBase, Typography, InputLabel, Paper } from '@mui/material'
+import { Grid, Box, FormControl, InputBase, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { makeStyles } from '@mui/styles'
 import { Button } from 'antd'
-import { borderRadius } from '@mui/system'
 
-const InputBox = styled(InputBase)(({ theme }) => ({
+const InputBox = styled(InputBase)(() => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
         position: 'relative',

@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Card, CardActions, CardContent, CardMedia, Typography, Button, Grid } from '@mui/material'
+import { Card, CardActions, CardContent, CardMedia, Typography, Button } from '@mui/material'
 const TrainCard:React.FC<{items:any}>=(props) => {
     const {from,to,trainNumber,arrival,time,id}=props.items
     let navigate=useNavigate()
-    const handleBook=(e:any,id:string):void=>{
+    const handleBook=(e:any,ids:string):void=>{
         e.preventDefault()
-        navigate(`/bookTrain/${id}`)
+        navigate(`/bookTrain/${ids}`)
     }
     return (
         <>

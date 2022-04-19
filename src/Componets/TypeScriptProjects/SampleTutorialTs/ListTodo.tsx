@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoModel from './TodoModel'
+import TodoModel from './TodoModal'
 
 const ListTodo:React.FC<{data:TodoModel;pass:(id:string)=>void}>=(props)=>{
     const handleClick=():void=>{

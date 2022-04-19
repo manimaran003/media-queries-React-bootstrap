@@ -42,15 +42,15 @@ const SearchPaperComponent = () => {
             authCtx.search(state)
         }
         if (data === "add") {
-            const data = {
+            const datas = {
                 id: uuidv4(),
                 from: addState.fromCity,
                 to: addState.toCity,
                 arrival: addState.arrival,
                 time: addState.time
             }
-            authCtx.add(data)
-            console.log(data)
+            authCtx.add(datas)
+            console.log(datas)
             clearField()
         }
     }

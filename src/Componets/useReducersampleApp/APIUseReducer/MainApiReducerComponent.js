@@ -1,14 +1,11 @@
-import React, { useEffect, useReducer, useContext, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { Box, Grid,} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import axios from 'axios';
-//import ApiHeader from './ApiHeader'
 import TrainComponentCard from './TrainComponentCard'
 import SearchPaperComponent from './SearchPaperComponent';
 import TrainReducer from './TrainReducer';
 import AuthContext from './auth-context';
-// import {toast} from 'react-toastify'
-// import {toastStyles} from './toastStyles'
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -27,16 +24,6 @@ const MainApiReducerComponent = () => {
    
     console.log('storetrain', StoreTrain)
     useEffect(() => {
-    //    let instance= axios({ 
-    //         url:'http://localhost:3006/Trains' ,
-    //         method:'get',
-    //     })
-    //     instance.interceptors.request.use(function (config) {
-    //        console.log(config)
-    //        return config
-    //       }, function (error) {
-    //         return Promise.reject(error);
-    //       });
 
         axios.get('http://localhost:3006/Trains')
             .then((res) => {
@@ -64,7 +51,6 @@ const MainApiReducerComponent = () => {
     }
 
     const SearchFilter = (data) => {
-        //console.log(data.from)
         dispatch({ type: "SEARCHAPI", payload: data.from })
     }
     const AddNewTrain = (data) => {
@@ -91,7 +77,7 @@ const MainApiReducerComponent = () => {
                     }
                     return dispatch({ type: "DELETEAPI", payload: id })
                 })
-                .catch((err) => {
+                .catch((_err) => {
                     toast("error in train deleted")
                 })
         })()
@@ -107,10 +93,8 @@ const MainApiReducerComponent = () => {
                             refres()
 
                         }
-                        //setRefreshApi(true)
-                        //return dispatch({ type: "EDITAPI", payload: temp })
                     })
-                    .catch((err) => {
+                    .catch((_err) => {
                         toast("error in editing api")
                     })
             }

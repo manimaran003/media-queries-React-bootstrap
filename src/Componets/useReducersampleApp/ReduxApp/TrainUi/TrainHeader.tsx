@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { Box, Grid, Avatar, IconButton } from '@mui/material'
+import { Box, Avatar, IconButton } from '@mui/material'
 import { Typography } from 'antd'
 
 const useStyles = makeStyles({

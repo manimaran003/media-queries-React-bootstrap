@@ -5,7 +5,7 @@ export type ACTIONTYPE = { type: "GETAPI", payload: DataModel[] }
     | { type: "PUTAPI", payload: DataModel[] }
     | { type: "DELETEAPI", payload: DataModel[] }
 
-const ReducerTs = (state = initState, action: ACTIONTYPE) => {
+const ReducerTs = (action: ACTIONTYPE,state = initState, ) => {
     switch (action.type) {
         case "GETAPI":
             console.log("haiReducerget=>", ...action.payload)

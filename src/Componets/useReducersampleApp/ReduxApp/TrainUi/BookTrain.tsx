@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { addUser } from "../../ReduxFIles/Actions/ActionTrain";
 import { useParams } from "react-router-dom";
 import ConvertTsModel from "../../ReduxFIles/ConvertTsModel";
-const InputBox = styled(InputBase)(({ theme }) => ({
+const InputBox = styled(InputBase)(() => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
         position: 'relative',
@@ -25,7 +25,6 @@ const InputBox = styled(InputBase)(({ theme }) => ({
 const useStyles = makeStyles({
     root: {
         marginTop: "50px",
-        //background: "rgb(2,0,36)",
         background: "linear-gradient(139deg, rgba(2,0,36,1) 0%, rgba(191,232,227,1) 0%, rgba(255,255,255,1) 99%, rgba(0,251,156,1) 100%);",
         height: "860px"
     },
@@ -42,7 +41,7 @@ const useStyles = makeStyles({
     },
 })
 const BookTrain:React.FC= () => {
-    const [value, setValue] = useState<ConvertTsModel>(
+    const [values, setValue] = useState<ConvertTsModel>(
         {
             id:"",
             from:"",
@@ -57,21 +56,17 @@ const BookTrain:React.FC= () => {
     )
     const [btn, setBtn] = useState(false)
     const [open, setOpen] = useState(false)
-    // const[bind,setBind]=useState({})
-    // const[types,settype]=useState("add")
     let dispatch:any = useDispatch()
-    const data:any = useSelector((state:any) => state.PostReducer.trips)
-    // /console.log("dat",data && data)
+    const data:any = useSelector((states:any) => states.PostReducer.trips)
     let { id } = useParams()
     useEffect(() => {
-        let value = data ? data.find((item:any) => item.id === id) : ""
-        setValue(value)
-    }, [id])
+        let valued = data ? data.find((item:any) => item.id === id) : ""
+        setValue(valued)
+    }, [data, id])
     type IUser={
         passengerAge:string,
         passengerName:string
     }
-    console.log("value", value)
     const classes = useStyles()
     let initialValues = {
         passengerName: "",
@@ -84,38 +79,21 @@ const BookTrain:React.FC= () => {
     }
     const handleSubmit = (e:any) => {
         e.preventDefault()
-        // if(type==="add"){
         let temp:any = {
             id: uuidv4(),
-            from: value.from,
-            to: value.to,
-            time: value.time,
-            arrival: value.arrival,
+            from: values.from,
+            to: values.to,
+            time: values.time,
+            arrival: values.arrival,
             passengerName: state.passengerName,
             passengerAge: state.passengerAge,
-            trainName: value.trainName,
-            trainNumber:value.trainNumber
+            trainName: values.trainName,
+            trainNumber:values.trainNumber
         }
         dispatch(addUser(temp))
         setOpen(true)
         setBtn(true)
         handleReset()
-        // }
-        // if(type==="edit"){
-        //     console.log("edit clciked")
-        //     let temp = {
-        //         from: bind.from,
-        //         to: bind.to,
-        //         time: bind.time,
-        //         arrival: bind.arrival,
-        //         passengerName: state.passengerName,
-        //         passengerAge: state.passengerAge,
-        //         trainName:bind.trainName
-        //     }
-        //     console.log("edited called",bind.id)
-        //     dispatch(editUser(bind.id,temp))
-        //     setOpen(true)
-        // }
     }
     const handleReset = () => {
         initialValues = {
@@ -124,17 +102,6 @@ const BookTrain:React.FC= () => {
         }
         setState(initialValues)
     }
-    // const handlePass=(data,type)=>{
-    //     console.log("pas",data)
-    //     console.log("edited clicked")
-    //     initialValues={
-    //         passengerName:":mani",
-    //         passengerAge:"ksdk"
-    //     }
-    //     setBind(data)
-    //     settype(type)
-    //     setBtn(false)
-    // }
     return (
         <>
             <Box className={classes.root}>
@@ -152,17 +119,17 @@ const BookTrain:React.FC= () => {
                                                 <Grid container>
                                                     <Grid item xs={12}>
                                                         <Typography>Train Number</Typography>
-                                                        <InputBox value={value.trainNumber} fullWidth disabled />
+                                                        <InputBox value={values.trainNumber} fullWidth disabled />
                                                     </Grid>
                                                     <Grid item xs={12}>
                                                         <Grid item xs={12}>
                                                             <Typography>From</Typography>
-                                                            <InputBox value={value.from} fullWidth disabled />
+                                                            <InputBox value={values.from} fullWidth disabled />
                                                         </Grid>
 
                                                         <Grid item xs={12}>
                                                             <Typography>To</Typography>
-                                                            <InputBox value={value.to} fullWidth disabled />
+                                                            <InputBox value={values.to} fullWidth disabled />
                                                         </Grid>
                                                         <Grid item xs={12}>
                                                             <Typography>Passenger Name</Typography>

@@ -1,5 +1,5 @@
 import '../../../../Home.scss'
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect} from 'react'
 import { makeStyles } from '@mui/styles';
 import { Box, Grid, CssBaseline } from '@mui/material'
 import DrawerComponent from './DrawerComponent';

@@ -9,16 +9,6 @@ const ProductReducers = (state, action) => {
         return state.filter((itm) => itm.id !== action.payload)
     }
     if (action.type === "EDITCART") {
-        // const editItem = state.filter(item => item.id === action.payload.id)
-        // editItem.id = action.payload.id
-        // editItem.ProductName = action.payload.ProductName
-        // editItem.ProductPrice = action.payload.ProductPrice
-        // const newState = state.filter((itm) => itm.id !== action.payload.id)
-        // console.log("edited reducer", newState)
-        // return [
-        //     ...newState,
-        //     editItem
-        // ]
         let editItem=state.findIndex((itm)=>itm.id===action.payload.id)
         state.splice(editItem,1,action.payload)
         return state

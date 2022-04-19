@@ -1,6 +1,6 @@
 import Todos from "./Todos";
 import { Box } from '@mui/material'
-import TodoModel from './TodoModel'
+import TodoModel from './TodoModal'
 import NewTodo from './NewTodo'
 import { useState } from "react";
 

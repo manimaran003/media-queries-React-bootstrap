@@ -4,9 +4,7 @@ import { makeStyles } from '@mui/styles'
 import { styled } from '@mui/material/styles'
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { useNavigate, useParams } from 'react-router-dom';
-import Model from '../ReduxStore/Model'
-import { v4 as uuidv4 } from 'uuid';
-import { AddBike, getBike,EditBike } from '../ReduxStore/action'
+import {getBike,EditBike } from '../ReduxStore/action'
 import DrawerComponent from './DrawerComponent'
 import { useDispatch, useSelector } from 'react-redux';
 const InputBox = styled(InputBase)(() => ({
@@ -82,7 +80,7 @@ const EditBikeForm: React.FC = () => {
     const classes = useStyles()
     let navigate: any = useNavigate()
     let dispatch: any = useDispatch()
-    let BikeData: any = useSelector((state: any) => state.ReducerComponent)
+    let BikeData: any = useSelector((states: any) => states.ReducerComponent)
     const [fetch, setFetch] = useState<EditType>({
         userName: "",
         BikeName: "",
@@ -131,10 +129,6 @@ const EditBikeForm: React.FC = () => {
     }
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        // let states:any = {
-        //     ...state,
-        //      Bikeimg:img
-        // }
         let newState:any={
             userName:state.userName,
             BikeName:state.BikeName,
