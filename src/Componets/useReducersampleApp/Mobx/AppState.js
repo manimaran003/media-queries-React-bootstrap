@@ -1,10 +1,8 @@
-import { observable} from "mobx";
+import { observable } from 'mobx';
 
-export const AppState=observable(
-    {
-        result:[],
-        getResult() {
-            return AppState.result
-          },
-    }
-)
+export const AppState = observable({
+  result: [],
+  getResult() {
+    return AppState.result;
+  }
+});

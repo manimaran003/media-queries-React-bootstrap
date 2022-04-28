@@ -1,106 +1,104 @@
-.main-app{
-  height:900px;
+.main-app {
+  height: 900px;
   background-image: url('https://i.pinimg.com/736x/06/26/13/062613231a04bcea7bdbe83a8ad1c63c.jpg') !important;
 }
-.sideBar-logo{
-  height:900px;
-  background-color:#fff;
+.sideBar-logo {
+  height: 900px;
+  background-color: #fff;
   display: none;
 }
-.sideBar-login{
-  height:912px;
-  background-color:#07127b;
+.sideBar-login {
+  height: 912px;
+  background-color: #07127b;
   display: block;
 }
-.logoText{
-  color:#807070;
+.logoText {
+  color: #807070;
   font-size: 30px;
 }
-.textColor{
+.textColor {
   margin-top: 4rem;
-  color:#fff;
+  color: #fff;
 }
-.logo-button{
-    background: #07127b 0 0 no-repeat padding-box;
-    border-radius: 0 0 10px 10px;
-    opacity: 1;
-    cursor: pointer;
-    color:#cecece
+.logo-button {
+  background: #07127b 0 0 no-repeat padding-box;
+  border-radius: 0 0 10px 10px;
+  opacity: 1;
+  cursor: pointer;
+  color: #cecece;
 }
-.loginText2{
-    text-align: center;
-    font-size: 25px;
-    font-weight: 100;
-    letter-spacing: 0;
-    color: #e6e6e6;
-    width: 100%;
+.loginText2 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 100;
+  letter-spacing: 0;
+  color: #e6e6e6;
+  width: 100%;
 }
-.top{
+.top {
   margin-top: 120px;
 }
-#exampleFormControlInput1,#exampleFormControlInput2,#basic-addon1{
-  border-right-width: 1px!important;
-    background: #242e8f!important;
+#exampleFormControlInput1,
+#exampleFormControlInput2,
+#basic-addon1 {
+  border-right-width: 1px !important;
+  background: #242e8f !important;
   /* border: none;*/
 }
-.form-label{
-  color:#cecece;
+.form-label {
+  color: #cecece;
 }
 
-.form-control{
-  color: #cecece!important;
+.form-control {
+  color: #cecece !important;
 }
 
 .form-control:focus {
-  color: #cecece!important;
-  background-color:none !important;
-   border-color:none !important;
-  outline:0;
-   box-shadow:none !important;
+  color: #cecece !important;
+  background-color: none !important;
+  border-color: none !important;
+  outline: 0;
+  box-shadow: none !important;
 }
 
-@media (min-width: 576px) { 
-  .sideBar-logo{
-    height:900px;
-    background-color:#fff;
+@media (min-width: 576px) {
+  .sideBar-logo {
+    height: 900px;
+    background-color: #fff;
     display: none;
   }
 }
 
-
-@media (min-width: 768px) { 
-  .sideBar-logo{
-    height:900px;
-    background-color:#fff;
+@media (min-width: 768px) {
+  .sideBar-logo {
+    height: 900px;
+    background-color: #fff;
     display: none;
   }
 }
 
-
-@media (min-width: 992px) { 
-  .sideBar-logo{
-    height:900px;
-    background-color:#fff;
+@media (min-width: 992px) {
+  .sideBar-logo {
+    height: 900px;
+    background-color: #fff;
     display: flex;
   }
 }
 
-
-@media (min-width: 1200px) { 
-  .sideBar-logo{
-    height:900px;
-    background-color:#fff;
+@media (min-width: 1200px) {
+  .sideBar-logo {
+    height: 900px;
+    background-color: #fff;
     display: block;
   }
 }
 
-
- .login-btn{
+.login-btn {
   width: 80%;
-  background-color: #f77!important;
-  color: #fff!important;
-  height: 50px!important;
-  border-width: 0!important;
-  font-size: 22px!important;
+  background-color: #f77 !important;
+  color: #fff !important;
+  height: 50px !important;
+  border-width: 0 !important;
+  font-size: 22px !important;
   border-radius: 32px;
- }
+}

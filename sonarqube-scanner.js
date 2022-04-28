@@ -1,12 +1,13 @@
-const scanner = require('sonarqube-scanner');
+import scanner from 'sonarqube-scanner';
 scanner(
-    {
-    serverUrl: "http://localhost:9000",
-    login: "admin",
-    password: "Dorus@1999",
+  {
+    serverUrl: 'http://localhost:9000',
+    login: 'admin',
+    password: 'Dorus@1999',
     options: {
-    "sonar.sources": "./src",
-    },
-    },
-    () => process.exit()
+      'sonar.sources': './src'
+    }
+  },
+  // eslint-disable-next-line no-undef
+  () => process.exit()
 );

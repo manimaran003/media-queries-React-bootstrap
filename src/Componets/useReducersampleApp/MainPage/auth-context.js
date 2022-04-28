@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
+const AuthContext = React.createContext({
+  products: []
+});
 
-const AuthContext=React.createContext({
-       
-        products:[]
-})
-
-export default AuthContext
+export default AuthContext;

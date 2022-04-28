@@ -1,56 +1,59 @@
-import React, { useState, useEffect } from "react";
-import { Box, Button, Typography, TextField, Modal } from '@mui/material'
+import React, { useState, useEffect } from 'react';
+import { Box, Button, Typography, TextField, Modal } from '@mui/material';
+import PropTypes from 'prop-types'
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
   boxShadow: 24,
-  p: 2,
+  p: 2
 };
 const ModalComponent = (props) => {
+  const {pass,NewData,open,close}=props
+  const {id,ProductName,ProductPrice}=pass
   const initialValues = {
-    id: props.pass.id,
-    ProductName: props.pass.ProductName,
-    ProductPrice: props.pass.ProductPrice
-  }
-  const [state, setState] = useState(initialValues)
-  useEffect(()=>{
-    if(props.pass){
-      setState(props.pass)
+    id:id,
+    ProductName: ProductName,
+    ProductPrice:ProductPrice
+  };
+  const [state, setState] = useState(initialValues);
+  useEffect(() => {
+    if (pass) {
+      setState(pass);
     }
-  },[props.pass])
+  }, [pass]);
   const handleChange = (e) => {
     setState({
       ...state,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
   const handleSubmit = (e) => {
-    e.preventDefault()
-    props.NewData(state)
-  }
+    e.preventDefault();
+    NewData(state);
+  };
   return (
     <>
       <Modal
-        open={props.open}
-        onClose={props.close}
+        open={open}
+        onClose={close}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Box sx={{ display: "flex", justifyContent: "center", color: "green", mb: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', color: 'green', mb: 2 }}>
             <Typography>Update Employee</Typography>
           </Box>
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "space-between",
+              display: 'flex',
+              justifyContent: 'space-between',
               mt: 1,
-              alignItems: "center",
+              alignItems: 'center'
             }}
           >
             <Typography>ProductName</Typography>
@@ -62,10 +65,10 @@ const ModalComponent = (props) => {
           </Box>
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "space-between",
+              display: 'flex',
+              justifyContent: 'space-between',
               mt: 1,
-              alignItems: "center",
+              alignItems: 'center'
             }}
           >
             <Typography>ProductPrice</Typography>
@@ -76,7 +79,7 @@ const ModalComponent = (props) => {
             />
           </Box>
 
-          <Box sx={{ width: "100%", textAlign: "center", mt: 3 }}>
+          <Box sx={{ width: '100%', textAlign: 'center', mt: 3 }}>
             <Button variant="contained" onClick={handleSubmit}>
               Update
             </Button>
@@ -84,7 +87,14 @@ const ModalComponent = (props) => {
         </Box>
       </Modal>
     </>
-  )
+  );
+};
+
+ModalComponent.propTypes={
+  pass:PropTypes.object.isRequired,
+  NewData:PropTypes.func.isRequired,
+  open:PropTypes.bool.isRequired,
+  close:PropTypes.func.isRequired,
 }
 
-export default ModalComponent
+export default ModalComponent;

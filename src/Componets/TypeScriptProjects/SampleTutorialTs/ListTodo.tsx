@@ -1,15 +1,15 @@
-import React from 'react'
-import TodoModel from './TodoModal'
+import React from 'react';
+import TodoModel from './TodoModal';
 
-const ListTodo:React.FC<{data:TodoModel;pass:(id:string)=>void}>=(props)=>{
-    const handleClick=():void=>{
-        props.pass(props.data.id)
-    }
-    return (
-        <>
-        <li onClick={handleClick}>{props.data.text}</li>
-        </>
-    )
-}
+const ListTodo: React.FC<{ data: TodoModel; pass: (id: string) => void }> = (props) => {
+  const handleClick = (): void => {
+    props.pass(props.data.id);
+  };
+  return (
+    <>
+      <li onClick={handleClick}>{props.data.text}</li>
+    </>
+  );
+};
 
-export default ListTodo
+export default ListTodo;
